@@ -2,6 +2,8 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Featured from "./components/featured";
 import SpecificationTable from "./components/specifications/specificationTable";
+import Related from "./components/cards/related";
+import CarouselImage from "./components/carousel/carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
@@ -37,6 +39,14 @@ export default function Home() {
 
       <div>
       <SpecificationTable />
+      </div>
+
+      <div>
+        <Related></Related>
+      </div>
+
+      <div>
+        <CarouselImage></CarouselImage>
       </div>
 
       <div className={styles.grid}>
