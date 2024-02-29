@@ -4,6 +4,7 @@ import Featured from "./components/featured";
 import SpecificationTable from "./components/specifications/specificationTable";
 import Related from "./components/cards/related";
 import CarouselImage from "./components/carousel/carousel";
+import PriceCard from "./components/cards/price";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
@@ -47,6 +48,10 @@ export default function Home() {
 
       <div>
         <CarouselImage></CarouselImage>
+      </div>
+
+      <div>
+        <PriceCard></PriceCard>
       </div>
 
       <div className={styles.grid}>
