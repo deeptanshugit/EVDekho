@@ -19,30 +19,30 @@ export default function Featured() {
                         <div className="col">
                             <div className="row mt-5">
                                 <div className="col">
-                                    <Card>
-                                        <div className="row align-items-center justify-content-between">
+                                    <div className={styles.variant}>
+                                        <div className="row align-items-center justify-content-between d-flex">
                                             <div className="col-6">
                                                 <p> City </p>
                                                 <h6> Bengaluru, Karnataka </h6>
                                             </div>
-                                            <div className="col-6 ms-auto">
+                                            <div className="col-6 d-flex justify-content-around">
                                                 <FontAwesomeIcon width={15} icon={faChevronRight} />
                                             </div>
                                         </div>
-                                    </Card>
+                                    </div>
                                 </div>
                                 <div className="col">
-                                    <Card>
+                                    <div className={styles.variant}>
                                         <div className="row align-items-center">
                                             <div className="col">
                                                 <p> Variant </p>
                                                 <h6> Single Channel ABS </h6>
                                             </div>
-                                            <div className="col">
+                                            <div className="col d-flex justify-content-around">
                                                 <FontAwesomeIcon width={15} icon={faChevronRight} />
                                             </div>
                                         </div>
-                                    </Card>
+                                    </div>
                                 </div>
                             </div>
 
