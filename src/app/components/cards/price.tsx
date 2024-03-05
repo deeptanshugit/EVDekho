@@ -2,7 +2,7 @@ import { Card, CardBody, CardImg, CardText, CardTitle } from "react-bootstrap"
 
 export default function PriceCard() {
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem' }} className="mt-5">
             <CardImg src="/bangalore.png"></CardImg>
             <CardBody>
                 <CardTitle>
