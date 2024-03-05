@@ -4,7 +4,8 @@ import activaData from "../../../../public/data/hondaactive6g/activa6g";
 
 export default function SpecificationTable() {
   const [showAllRows, setShowAllRows] = useState(false);
-  const [expandedCategories, setExpandedCategories] = useState([]);
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+
 
   const renderRows = () => {
     return activaData.map((dataEntry, index) => (
@@ -23,7 +24,7 @@ export default function SpecificationTable() {
           </td>
         </tr>
         {expandedCategories.includes(category) || showAllRows
-          ? Object.entries(properties).map(([key, value]) => (
+          ? Object.entries(properties as { [key: string]: any }).map(([key, value]) => (
               <tr key={key}>
                 <td>
                   <strong>{key}:</strong>
@@ -31,7 +32,7 @@ export default function SpecificationTable() {
                 <td>{value}</td>
               </tr>
             ))
-          : Object.entries(properties).slice(0, 5).map(([key, value]) => (
+          : Object.entries(properties as { [key: string]: any }).slice(0, 5).map(([key, value]) => (
               <tr key={key}>
                 <td>
                   <strong>{key}:</strong>
@@ -41,7 +42,7 @@ export default function SpecificationTable() {
             ))}
         <tr>
           <td colSpan={2}>
-            {Object.entries(properties).length > 5 && (
+            {Object.entries(properties as { [key: string]: any }).length > 5 && (
               <button className="btn btn-primary btn-sm" onClick={() => toggleShowCategory(category)}>
                 {expandedCategories.includes(category) ? "Collapse" : "See More"}
               </button>
@@ -50,11 +51,6 @@ export default function SpecificationTable() {
         </tr>
       </Fragment>
     ));
-  };
-
-  const toggleShowAllRows = () => {
-    setShowAllRows(!showAllRows);
-    setExpandedCategories([]);
   };
 
   const toggleShowCategory = (category: any) => {
@@ -68,8 +64,7 @@ export default function SpecificationTable() {
   return (
     <div>
       <h3>Specifications & Features</h3>
-      <div className="mt-5">
-        <h5 className="mb-3"> Power & Performance </h5>
+      <div className="mt-2">
         <table className="table">
           <thead></thead>
           <tbody>
