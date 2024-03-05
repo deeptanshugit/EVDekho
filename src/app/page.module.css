@@ -75,9 +75,16 @@
 
 .center {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
   padding: 4rem 0;
   width: 100%;
 }
