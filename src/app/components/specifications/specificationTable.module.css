@@ -1,0 +1,10 @@
+.tableContainer {
+    border-style: solid;
+    border-color: #e1e1e1;
+    border-width: 1px;
+    margin-top: 20px;
+}
+
+.table {
+    width: 60%;
+}
