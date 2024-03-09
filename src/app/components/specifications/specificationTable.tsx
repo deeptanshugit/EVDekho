@@ -1,6 +1,7 @@
 "use client"
 import { useState, Fragment } from "react";
 import activaData from "../../../../public/data/hondaactive6g/activa6g";
+import styles from "./specificationTable.module.css"
 
 export default function SpecificationTable() {
   const [showAllRows, setShowAllRows] = useState(false);
@@ -62,9 +63,9 @@ export default function SpecificationTable() {
   };
 
   return (
-    <div>
+    <div className={styles.table}>
       <h3>Specifications & Features</h3>
-      <div className="mt-2">
+      <div className={styles.tableContainer}>
         <table className="table">
           <thead></thead>
           <tbody>
