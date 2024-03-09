@@ -23,7 +23,7 @@ export default function Home() {
       </div>
 
       <div className="row align-self-start">
-        <div className="col-lg-6 col-sm-12 col-md-6">
+        <div className="col-lg-6 col-sm-12 col-md-6 ">
         <Related></Related>
         </div>
 
@@ -32,11 +32,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.left}>
-        <PriceCard></PriceCard>
-      </div>
-
-      <div>
+      <div className="mt-5">
         <FAQS></FAQS>
       </div>
 
