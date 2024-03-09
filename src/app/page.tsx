@@ -4,8 +4,11 @@ import SpecificationTable from "./components/specifications/specificationTable";
 import Related from "./components/cards/related";
 import PriceCard from "./components/cards/price";
 import FAQS from "./components/faqs/faqs";
+import SimpleSlider from "./components/slider/simpleSlider";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
   return (
@@ -35,6 +38,10 @@ export default function Home() {
 
       <div>
         <FAQS></FAQS>
+      </div>
+
+      <div className={styles.left}>
+        <SimpleSlider></SimpleSlider>
       </div>
       
     </main>
