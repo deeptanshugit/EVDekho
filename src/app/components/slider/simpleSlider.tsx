@@ -72,6 +72,7 @@ export default function SimpleSlider() {
   };
   return (
     <div className={styles.container}>
+      <h3> Ather 450X Prices In India </h3>
       <Slider {...settings}>
         {prices.map((price, index) => (
           <div key={index}>
