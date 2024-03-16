@@ -3,27 +3,29 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./simpleslider.module.css";
-import { Card, CardBody, CardImg, CardText, CardTitle } from "react-bootstrap";
+import { Button, Card, CardBody, CardImg, CardText, CardTitle } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft, faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function NextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
-      onClick={onClick}
-    />
+    <div className={styles.sliderarrow}>
+      <Button className={styles.arrowbtnnext} onClick = {onClick}>
+        <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+      </Button>
+    </div>
   );
 }
 
 function PrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}
-    />
+    <div className={styles.sliderarrow}>
+      <Button className={styles.arrowbtnprev} onClick = {onClick}>
+        <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
+      </Button>
+    </div>
   );
 }
 
@@ -71,12 +73,13 @@ export default function SimpleSlider() {
     prevArrow: <PrevArrow />
   };
   return (
+    
     <div className={styles.container}>
-      <h3> Ather 450X Prices In India </h3>
+            <h3> Ather 450X Prices In India </h3>
       <Slider {...settings}>
         {prices.map((price, index) => (
           <div key={index}>
-            <Card style={{ width: "18rem" }} className="mt-5">
+            <Card style={{ width: "13rem", padding: "15px" }} className="mt-5">
               <CardImg src={price.image}></CardImg>
               <CardBody>
                 <CardTitle>{price.city}</CardTitle>
