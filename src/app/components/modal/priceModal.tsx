@@ -65,7 +65,7 @@ const popularCities2 = [
   },
   {
     city: "Chennai",
-    image: "/Chennai.png",
+    image: "/chennai.png",
     price: "1,18,984",
   },
 ];

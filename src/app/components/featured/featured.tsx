@@ -5,11 +5,15 @@ import { Card, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import VariantModal from "./modal/variantModal";
-import PriceModal from "./modal/priceModal";
+import VariantModal from "../modal/variantModal";
+import PriceModal from "../modal/priceModal";
+
+interface FeaturedProps {
+    imageURL: string,
+  }
 
 
-export default function Featured() {
+export default function Featured(props: FeaturedProps) {
     const [showVariantModal, setShowVariantModal] = useState(false);
     const [showPriceModal, setShowPriceModal] = useState(false);
     const handleVariantModalShow = () => setShowVariantModal(true);
@@ -25,7 +29,7 @@ export default function Featured() {
                     <div className="row align-items-start justify-content-around">
 
                         <div className="col">
-                            <Image src="/honda-activa-6g.jpg" alt="hondaactiva" width={500} height={500} />
+                            <Image src={props.imageURL} alt="hondaactiva" width={600} height={400} />
                         </div>
 
                         <div className="col">
@@ -58,7 +62,7 @@ export default function Featured() {
                                 </div>
                             </div>
 
-                            <h3 className="mt-5">₹ 88,819</h3>
+                            <h3 className="mt-5">₹ 1,10,999</h3>
                             <p>On-Road Price, Delhi</p>
                             <Button variant="outline-primary">See Specifications</Button>{' '}
                         </div>
