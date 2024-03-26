@@ -7,8 +7,11 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // MongoDB connection
-const uri =
-  "mongodb+srv://deeptanshu:mongodbdeeptanshu@evdekho.t1ldanp.mongodb.net/?retryWrites=true&w=majority&appName=EVDekho";
+
+const uri = process.env.MONGODB_URI || "mongodb+srv://deeptanshu:mongodbdeeptanshu@evdekho.t1ldanp.mongodb.net/?retryWrites=true&w=majority&appName=EVDekho";
+
+// const uri =
+//   "mongodb+srv://deeptanshu:mongodbdeeptanshu@evdekho.t1ldanp.mongodb.net/?retryWrites=true&w=majority&appName=EVDekho";
 mongoose.connect(uri);
 
 const db = mongoose.connection;
