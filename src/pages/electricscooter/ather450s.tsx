@@ -1,23 +1,20 @@
-import styles from "./page.module.css";
-import Featured from "./components/featured/featured";
-import SpecificationTable from "./components/specifications/specificationTable";
-import Related from "./components/cards/related";
-import PriceCard from "./components/cards/price";
-import FAQS from "./components/faqs/faqs";
-import SimpleSlider from "./components/slider/simpleSlider";
+import styles from "./ather450s.module.css";
+import Featured from "@/app/components/featured/featured";
+import SpecificationTable from "@/app/components/specifications/specificationTable";
+import Related from "@/app/components/cards/related";
+import FAQS from "@/app/components/faqs/faqs";
+import SimpleSlider from "@/app/components/slider/simpleSlider";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Navbar from "./components/navbar/navbar";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Navbar />
 
       <div className={styles.center}>
-        <Featured imageURL="/scooter/honda-activa-6g-scooter.jpg" />
+        <Featured imageURL="/electricscooter/ather/ather450s.png" />
       </div>
 
       <div className={styles.left}>
