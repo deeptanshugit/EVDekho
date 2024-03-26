@@ -33,4 +33,4 @@ app.listen(port, () => {
 });
 
 // Routes
-app.use('/vehicles', vehicle);
+app.use('/api/v1/vehicles', vehicle);
