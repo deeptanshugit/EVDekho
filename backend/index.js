@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const vehicle = require('./controller/vehicle')
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.BACKEND_PORT || 3001;
 
 // MongoDB connection
 
