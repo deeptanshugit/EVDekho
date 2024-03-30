@@ -4,12 +4,29 @@ import SpecificationTable from "@/app/components/specifications/specificationTab
 import Related from "@/app/components/cards/related";
 import FAQS from "@/app/components/faqs/faqs";
 import SimpleSlider from "@/app/components/slider/simpleSlider";
+import { useEffect, useState } from "react";
+import Navbar from "@/app/components/navbar/navbar";
+import withLayout from "@/app/components/WithLayout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Home() {
+const Ather450S = () => {
+  const [vehicleData, setVehicleData] = useState([]);
+
+  useEffect(() => {
+    // Fetch vehicle data from your backend API
+    fetch('https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/vehicles/65f334a762b0a534ff44324a')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        setVehicleData(data);
+      })
+      .catch(error => console.error('Error fetching vehicle data:', error));
+  }, []);
+
   return (
     <main className={styles.main}>
 
@@ -18,7 +35,7 @@ export default function Home() {
       </div>
 
       <div className={styles.left}>
-        <SpecificationTable />
+        {vehicleData && <SpecificationTable data={vehicleData as any} />}
       </div>
 
       <div className="row align-self-start">
@@ -42,3 +59,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default withLayout(Ather450S);
