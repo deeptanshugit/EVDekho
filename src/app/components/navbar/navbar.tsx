@@ -20,10 +20,10 @@ export default function Navbar() {
         <header className="App-header">
           <nav className={`${styles.navbar}`}>
             {/* logo */}
-            <a href='#home' className={`${styles.logo}`}>EVDekho. </a>
+            <a href='/' className={`${styles.logo}`}>EVDekho. </a>
             <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
               <li onClick={removeActive}>
-                <a href='#home' className={`${styles.navLink}`}>Home</a>
+                <a href='/' className={`${styles.navLink}`}>Home</a>
               </li>
               <li onClick={removeActive}>
                 <a href='/electricscooter/ather450s' className={`${styles.navLink}`}>Ather 450s</a>
