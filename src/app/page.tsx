@@ -18,24 +18,6 @@ export default function Home() {
       </div>
 
       <BrandSelector></BrandSelector>
-
-      <div className="row align-self-start">
-        <div className="col-lg-6 col-sm-12 col-md-6 ">
-        <Related></Related>
-        </div>
-
-        <div className="col-lg-6 col-sm-12 col-md-6">
-        <Related></Related>
-        </div>
-      </div>
-
-      <div className="mt-5">
-        <FAQS></FAQS>
-      </div>
-
-      <div className={styles.left}>
-        <SimpleSlider></SimpleSlider>
-      </div>
       
     </main>
   );
