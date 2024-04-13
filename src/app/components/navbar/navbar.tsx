@@ -29,10 +29,10 @@ export default function Navbar() {
                 <a href='/electricscooter/ather450s' className={`${styles.navLink}`}>Ather 450s</a>
               </li>
               <li onClick={removeActive}>
-                <a href='/electricscooter/ather450x' className={`${styles.navLink}`}>Ather 450x</a>
+                <a href='/electricscooter/ather/ather450x' className={`${styles.navLink}`}>Ather 450x</a>
               </li>
               <li onClick={removeActive}>
-                <a href='/electricscooter/atherapex' className={`${styles.navLink}`}>Ather Apex</a>
+                <a href='/electricscooter/ather/atherapex' className={`${styles.navLink}`}>Ather Apex</a>
               </li>
             </ul>
             <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`}  onClick={toggleActiveClass}>
