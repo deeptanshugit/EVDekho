@@ -1,11 +1,8 @@
 import styles from "./ather450s.module.css";
 import Featured from "@/app/components/featured/featured";
 import SpecificationTable from "@/app/components/specifications/specificationTable";
-import Related from "@/app/components/cards/related";
 import FAQS from "@/app/components/faqs/faqs";
-import SimpleSlider from "@/app/components/slider/simpleSlider";
 import { useEffect, useState } from "react";
-import Navbar from "@/app/components/navbar/navbar";
 import withLayout from "@/app/components/WithLayout";
 
 import "bootstrap/dist/css/bootstrap.min.css";

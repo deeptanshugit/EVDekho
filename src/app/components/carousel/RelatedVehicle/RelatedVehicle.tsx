@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./RelatedVehicle.module.css";
+import styles from "./relatedvehicle.module.css";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,7 +19,7 @@ export default function RelatedVehicle() {
       <div>
         <Swiper
           slidesPerView={4}
-          spaceBetween={10}
+          spaceBetween={0}
           pagination={{
             clickable: true,
           }}
@@ -33,12 +33,12 @@ export default function RelatedVehicle() {
           <SwiperSlide className={styles.swiperSlide}>
             <div className={styles.cardContainer}>
               <div className="card">
-                <div className="image-section">
+                <div className={styles.cardImageContainer}>
                   <Image
                     src="/ather/ather-450x.png"
                     alt=""
-                    height={500}
-                    width={500}
+                    height={200}
+                    width={200}
                   ></Image>
                 </div>
                 <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
@@ -61,8 +61,8 @@ export default function RelatedVehicle() {
                   <Image
                     src="/ather/ather-apex.png"
                     alt=""
-                    height={500}
-                    width={500}
+                    height={200}
+                    width={200}
                   ></Image>
                 </div>
                 <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
@@ -85,8 +85,8 @@ export default function RelatedVehicle() {
                   <Image
                     src="/ola/ola-s1-pro.png"
                     alt=""
-                    height={500}
-                    width={500}
+                    height={200}
+                    width={200}
                   ></Image>
                 </div>
                 <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
@@ -109,8 +109,8 @@ export default function RelatedVehicle() {
                   <Image
                     src="/ola/ola-s1-air.png"
                     alt=""
-                    height={500}
-                    width={500}
+                    height={200}
+                    width={200}
                   ></Image>
                 </div>
                 <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
@@ -133,8 +133,8 @@ export default function RelatedVehicle() {
                   <Image
                     src="/ola/ola-s1-x.png"
                     alt=""
-                    height={500}
-                    width={500}
+                    height={200}
+                    width={200}
                   ></Image>
                 </div>
                 <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
@@ -157,8 +157,8 @@ export default function RelatedVehicle() {
                   <Image
                     src="/ola/ola-s1-x-plus.png"
                     alt=""
-                    height={500}
-                    width={500}
+                    height={200}
+                    width={200}
                   ></Image>
                 </div>
                 <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
