@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import RelatedVehicle from "@/app/components/carousel/RelatedVehicle/RelatedVehicle";
 import VehiclePrice from "@/app/components/carousel/VehiclePrice/vehicleprice";
+import { Col, Row } from "react-bootstrap";
 
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);
@@ -29,28 +30,24 @@ const Ather450S = () => {
   }, []);
 
   return (
-    <main className={styles.main}>
-      <div>
+    <div>
+      <div className="p-5 mt-2">
         <Featured imageURL="/electricscooter/ather/ather450s.png" />
       </div>
-
-      <div className="mt-5">
+      <div>
         {vehicleData && <SpecificationTable data={vehicleData as any} />}
       </div>
 
-      <div className="mt-5">
+      <div className="p-5 mt-2">
         <RelatedVehicle></RelatedVehicle>
       </div>
+      
+      <VehiclePrice></VehiclePrice>
 
-      <div className="mt-5">
-        <VehiclePrice></VehiclePrice>
-      </div>
-
-      <div className="mt-5">
+      <div className="p-5 mt-2">
         <FAQS></FAQS>
       </div>
-      
-    </main>
+    </div>
   );
 };
 

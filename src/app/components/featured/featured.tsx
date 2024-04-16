@@ -68,6 +68,20 @@ export default function Featured(props: FeaturedProps) {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
               }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+                768: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+                1024: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+              }}
             >
               {images.map((image, index) => (
                 <SwiperSlide key={index} className={styles.swiperSlide}>
