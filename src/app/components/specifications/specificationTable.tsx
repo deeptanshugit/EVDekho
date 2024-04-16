@@ -74,12 +74,14 @@ export default function SpecificationTable(props: Props) {
   };
 
   return (
-    <div className={styles.table}>
-      <h3>Specifications & Features</h3>
-      <div className={styles.tableContainer}>
+    <div className="containter">
+      {/* <h3>Specifications & Features</h3> */}
+      <div className="row">
+        <div className="card">
         <table className="table">
           <tbody>{renderRows()}</tbody>
         </table>
+        </div>
       </div>
     </div>
   );
