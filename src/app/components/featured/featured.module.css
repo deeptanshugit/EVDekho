@@ -23,19 +23,7 @@
     max-height: 600px; /* Adjust as needed */
     overflow: hidden; /* Prevents image overflow */
   }
-  
-  .swiperSlide {
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiperSlide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+
   .swiperNavBtn {
     /* Your custom styles for prev and next buttons */
     position: relative;
@@ -51,4 +39,17 @@
   .swiperNavBtn::before {
     font-size: 16px;
   }
+  
+  .swiperSlide {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiperSlide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
   

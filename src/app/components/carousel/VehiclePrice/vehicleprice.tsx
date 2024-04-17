@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { Col, Row } from "react-bootstrap";
 
 const prices = [
   {
@@ -49,34 +50,52 @@ const prices = [
 
 export default function VehiclePrice() {
   return (
-    <div className="container">
-      <div>
-        <h4> Prices in India </h4>
-      </div>
-      <div>
-        <Swiper
-          slidesPerView={5}
-          spaceBetween={0}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[ Navigation]}
-          className="mySwiper"
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-        >
-          {prices.map((price, index) => (
-            <SwiperSlide key={index} className={styles.swiperSlide}>
-              <div className={styles.cardContainer}>
+    <Row>
+      <Col>
+        <div>
+          <h4> Prices in India </h4>
+        </div>
+        <div>
+          <Swiper
+            slidesPerView={6}
+            spaceBetween={10}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Navigation]}
+            className="mySwiper"
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            breakpoints={{
+              360: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 10,
+              },
+            }}
+          >
+            {prices.map((price, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
                 <div className="card">
                   <div className={styles.cardImageContainer}>
                     <Image
                       src={price.image}
                       alt=""
-                      height={200}
-                      width={200}
+                      height={400}
+                      width={400}
                     ></Image>
                   </div>
                   <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
@@ -84,13 +103,13 @@ export default function VehiclePrice() {
                     <p className={styles.cardContentP}>{price.price}</p>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className={`${styles.swiperNavBtn} swiper-button-next`}></div>
-          <div className={`${styles.swiperNavBtn} swiper-button-prev`}></div>
-        </Swiper>
-      </div>
-    </div>
+              </SwiperSlide>
+            ))}
+            <div className={`${styles.swiperNavBtn} swiper-button-next`}></div>
+            <div className={`${styles.swiperNavBtn} swiper-button-prev`}></div>
+          </Swiper>
+        </div>
+      </Col>
+    </Row>
   );
 }
