@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./relatedvehicle.module.css";
+import styles from "./RelatedVehicle.module.css";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
