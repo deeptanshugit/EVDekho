@@ -45,12 +45,11 @@
 
 .cardContentP {
     /* Your styles here */
-    font-size: 15px;
+    font-size: 14px;
     color: #333;
     /* Add any other styles you need */
   }
 
   .cardImageContainer {
     background-color: #f9f9f9;
-    padding: 40px;
 }
