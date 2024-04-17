@@ -1,11 +1,8 @@
 import styles from "./ather450s.module.css";
 import Featured from "@/app/components/featured/featured";
 import SpecificationTable from "@/app/components/specifications/specificationTable";
-import Related from "@/app/components/cards/related";
 import FAQS from "@/app/components/faqs/faqs";
-import SimpleSlider from "@/app/components/slider/simpleSlider";
 import { useEffect, useState } from "react";
-import Navbar from "@/app/components/navbar/navbar";
 import withLayout from "@/app/components/WithLayout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import RelatedVehicle from "@/app/components/carousel/RelatedVehicle/RelatedVehicle";
 import VehiclePrice from "@/app/components/carousel/VehiclePrice/vehicleprice";
+import { Col, Row } from "react-bootstrap";
 
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);
@@ -32,28 +30,24 @@ const Ather450S = () => {
   }, []);
 
   return (
-    <main className={styles.main}>
-      <div>
+    <div>
+      <div className="p-5 mt-2">
         <Featured imageURL="/electricscooter/ather/ather450s.png" />
       </div>
-
-      <div className="mt-5">
+      <div>
         {vehicleData && <SpecificationTable data={vehicleData as any} />}
       </div>
 
-      <div className="mt-5">
+      <div className="p-5 mt-2">
         <RelatedVehicle></RelatedVehicle>
       </div>
+      
+      <VehiclePrice></VehiclePrice>
 
-      <div className="mt-5">
-        <VehiclePrice></VehiclePrice>
-      </div>
-
-      <div className="mt-5">
+      <div className="p-5 mt-2">
         <FAQS></FAQS>
       </div>
-      
-    </main>
+    </div>
   );
 };
 

@@ -49,3 +49,8 @@
     color: #333;
     /* Add any other styles you need */
   }
+
+  .cardImageContainer {
+    background-color: #f9f9f9;
+    padding: 40px;
+}
