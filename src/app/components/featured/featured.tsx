@@ -96,12 +96,8 @@ export default function Featured(props: FeaturedProps) {
                   </Container>
                 </SwiperSlide>
               ))}
-                            <div
-                className={`swiper-button-next ${styles.swiperNavBtn}`}
-              ></div>
-              <div
-                className={`swiper-button-prev ${styles.swiperNavBtn}`}
-              ></div>
+              <div className={`swiper-button-next ${styles.swiperNavigationButton}`}></div>
+              <div className={`swiper-button-prev ${styles.swiperNavigationButton}`}></div>
             </Swiper>
           </div>
         </Col>

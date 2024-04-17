@@ -41,8 +41,10 @@ const Ather450S = () => {
       <div className="p-5 mt-2">
         <RelatedVehicle></RelatedVehicle>
       </div>
-      
+
+      <div className="p-5 mt-2">
       <VehiclePrice></VehiclePrice>
+      </div>
 
       <div className="p-5 mt-2">
         <FAQS></FAQS>
