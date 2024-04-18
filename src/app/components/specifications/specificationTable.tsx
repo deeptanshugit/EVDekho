@@ -1,60 +1,94 @@
-"use client"
-import { useState, Fragment } from "react";
-import activaData from "../../../../public/data/hondaactive6g/activa6g";
-import styles from "./specificationTable.module.css"
+"use client";
+import { Fragment } from "react";
+import styles from "./specificationTable.module.css";
+import { useState } from "react";
+import {
+  Card,
+  Col,
+  Nav,
+  NavItem,
+  NavLink,
+  Row,
+  TabContainer,
+  TabContent,
+  TabPane,
+} from "react-bootstrap";
 
-export default function SpecificationTable() {
+interface VehicleData {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
+
+interface Props {
+  data: VehicleData;
+}
+
+export default function SpecificationTable(props: Props) {
   const [showAllRows, setShowAllRows] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
 
+  const renderFeatures = () => {
+    const features = props.data.Features || {}; // Ensure Features object exists
+    return Object.entries(features).map(([key, value]) => (
+      <tr key={key}>
+        <td>
+          <strong>{key}:</strong>
+        </td>
+        <td>{value}</td>
+      </tr>
+    ));
+  };
 
   const renderRows = () => {
-    return activaData.map((dataEntry, index) => (
-      <Fragment key={index}>
-        {renderObjectEntries(dataEntry)}
-      </Fragment>
-    ));
+    return Object.entries(props.data)
+      .filter(([key]) => !["_id", "brand", "model", "Features"].includes(key))
+      .map(([category, properties]) => (
+        <Fragment key={category}>
+          <tr>
+            <td colSpan={2}>
+              <h5>{category}</h5>
+            </td>
+          </tr>
+          {renderProperties(properties, category)}
+          <tr>
+            <td colSpan={2}>
+              {Object.keys(properties).length > 5 && (
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={() => toggleShowCategory(category)}
+                >
+                  {expandedCategories.includes(category)
+                    ? "Collapse"
+                    : "See More"}
+                </button>
+              )}
+            </td>
+          </tr>
+        </Fragment>
+      ));
   };
 
-  const renderObjectEntries = (dataEntry: any) => {
-    return Object.entries(dataEntry).map(([category, properties]) => (
-      <Fragment key={category}>
-        <tr>
-          <td colSpan={2}>
-            <h5>{category}</h5>
+  const renderProperties = (
+    properties: { [key: string]: string },
+    category: string
+  ) => {
+    return Object.entries(properties)
+      .map(([key, value], index) => (
+        <tr key={index}>
+          <td>
+            <strong>{key}:</strong>
           </td>
+          <td>{value}</td>
         </tr>
-        {expandedCategories.includes(category) || showAllRows
-          ? Object.entries(properties as { [key: string]: any }).map(([key, value]) => (
-              <tr key={key}>
-                <td>
-                  <strong>{key}:</strong>
-                </td>
-                <td>{value}</td>
-              </tr>
-            ))
-          : Object.entries(properties as { [key: string]: any }).slice(0, 5).map(([key, value]) => (
-              <tr key={key}>
-                <td>
-                  <strong>{key}:</strong>
-                </td>
-                <td>{value}</td>
-              </tr>
-            ))}
-        <tr>
-          <td colSpan={2}>
-            {Object.entries(properties as { [key: string]: any }).length > 5 && (
-              <button className="btn btn-primary btn-sm" onClick={() => toggleShowCategory(category)}>
-                {expandedCategories.includes(category) ? "Collapse" : "See More"}
-              </button>
-            )}
-          </td>
-        </tr>
-      </Fragment>
-    ));
+      ))
+      .slice(
+        0,
+        showAllRows || expandedCategories.includes(category) ? undefined : 5
+      );
   };
 
-  const toggleShowCategory = (category: any) => {
+  const toggleShowCategory = (category: string) => {
     if (expandedCategories.includes(category)) {
       setExpandedCategories(expandedCategories.filter((c) => c !== category));
     } else {
@@ -63,18 +97,38 @@ export default function SpecificationTable() {
   };
 
   return (
-    <div className={styles.table}>
-      <h3>Specifications & Features</h3>
-      <div className={styles.tableContainer}>
-        <table className="table">
-          <thead></thead>
-          <tbody>
-            {renderRows()}
-            <tr>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <TabContainer id="left-tabs-example" defaultActiveKey="specifications">
+      <Row>
+        <Col xs={12} md={12} lg={12}>
+          <h4 className="mb-4"> Ather 450S Specifications and Features</h4>
+          <Nav variant="tabs">
+            <NavItem>
+              <NavLink eventKey="specifications"> Specifications </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink eventKey="features"> Features </NavLink>
+            </NavItem>
+          </Nav>
+          <TabContent>
+            <TabPane eventKey="specifications">
+              <Card>
+                <table className="table">
+                  <tbody>{renderRows()}</tbody>
+                </table>
+              </Card>
+            </TabPane>
+            <TabPane eventKey="features">
+              <Card>
+              <table className="table">
+                <tbody>
+                {renderFeatures()}
+                </tbody>
+              </table>
+              </Card>
+            </TabPane>
+          </TabContent>
+        </Col>
+      </Row>
+    </TabContainer>
   );
 }
