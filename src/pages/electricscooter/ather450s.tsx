@@ -34,7 +34,8 @@ const Ather450S = () => {
       <div className="p-5 mt-2">
         <Featured imageURL="/electricscooter/ather/ather450s.png" />
       </div>
-      <div>
+
+      <div className="p-5">
         {vehicleData && <SpecificationTable data={vehicleData as any} />}
       </div>
 
@@ -43,7 +44,7 @@ const Ather450S = () => {
       </div>
 
       <div className="p-5 mt-2">
-      <VehiclePrice></VehiclePrice>
+        <VehiclePrice></VehiclePrice>
       </div>
 
       <div className="p-5 mt-2">

@@ -2,6 +2,17 @@
 import { Fragment } from "react";
 import styles from "./specificationTable.module.css";
 import { useState } from "react";
+import {
+  Card,
+  Col,
+  Nav,
+  NavItem,
+  NavLink,
+  Row,
+  TabContainer,
+  TabContent,
+  TabPane,
+} from "react-bootstrap";
 
 interface VehicleData {
   [key: string]: {
@@ -17,9 +28,21 @@ export default function SpecificationTable(props: Props) {
   const [showAllRows, setShowAllRows] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
 
+  const renderFeatures = () => {
+    const features = props.data.Features || {}; // Ensure Features object exists
+    return Object.entries(features).map(([key, value]) => (
+      <tr key={key}>
+        <td>
+          <strong>{key}:</strong>
+        </td>
+        <td>{value}</td>
+      </tr>
+    ));
+  };
+
   const renderRows = () => {
     return Object.entries(props.data)
-      .filter(([key]) => !["_id", "brand", "model"].includes(key))
+      .filter(([key]) => !["_id", "brand", "model", "Features"].includes(key))
       .map(([category, properties]) => (
         <Fragment key={category}>
           <tr>
@@ -74,15 +97,38 @@ export default function SpecificationTable(props: Props) {
   };
 
   return (
-    <div className="containter">
-      {/* <h3>Specifications & Features</h3> */}
-      <div className="row">
-        <div className="card">
-        <table className="table">
-          <tbody>{renderRows()}</tbody>
-        </table>
-        </div>
-      </div>
-    </div>
+    <TabContainer id="left-tabs-example" defaultActiveKey="specifications">
+      <Row>
+        <Col xs={12} md={12} lg={12}>
+          <h4 className="mb-4"> Ather 450S Specifications and Features</h4>
+          <Nav variant="tabs">
+            <NavItem>
+              <NavLink eventKey="specifications"> Specifications </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink eventKey="features"> Features </NavLink>
+            </NavItem>
+          </Nav>
+          <TabContent>
+            <TabPane eventKey="specifications">
+              <Card>
+                <table className="table">
+                  <tbody>{renderRows()}</tbody>
+                </table>
+              </Card>
+            </TabPane>
+            <TabPane eventKey="features">
+              <Card>
+              <table className="table">
+                <tbody>
+                {renderFeatures()}
+                </tbody>
+              </table>
+              </Card>
+            </TabPane>
+          </TabContent>
+        </Col>
+      </Row>
+    </TabContainer>
   );
 }
