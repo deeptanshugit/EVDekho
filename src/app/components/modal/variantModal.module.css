@@ -1,0 +1,7 @@
+.variantcontainer {
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+    border-color: gray;
+    padding: 30px;
+    cursor: pointer;
+}

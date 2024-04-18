@@ -2,8 +2,9 @@ import Image from "next/image"
 
 export default function Related() {
     return (
+
         <div className="card">
-            <Image src="/tvs-ronin.jpg" alt="hondaactiva" width={500} height={300} />
+            <Image src="/tvs-ronin.jpg" alt="hondaactiva" width={300} height={200} />
             <div className="card-body">
                 <h5 className="card-title">TVS Ronin</h5>
                 <p className="card-text">225.9cc | 40 kmpl | 20.3 bhp</p>

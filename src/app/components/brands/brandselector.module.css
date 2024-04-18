@@ -1,0 +1,8 @@
+.imageContainer {
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}

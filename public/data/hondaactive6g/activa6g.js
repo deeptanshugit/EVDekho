@@ -63,8 +63,8 @@ const activaData = [
     }
   },
   {
-    "Manufacturer Warranty": {
-        "Standard Warranty": "3 Year/ 3000 km",
+    ManufacturerWarranty: {
+      "Standard Warranty": "3 Year/ 3000 km",
     }
   }
 ];

@@ -1,0 +1,55 @@
+.featuredContainer {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #333;
+  }
+  
+  .button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #333;
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .imageContainer {
+    max-width: 500px; /* Adjust as needed */
+    max-height: 600px; /* Adjust as needed */
+    overflow: hidden; /* Prevents image overflow */
+  }
+
+  .swiperNavBtn {
+    /* Your custom styles for prev and next buttons */
+    position: relative;
+    color: #333;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.15);
+  }
+  
+  .swiperNavBtn::after,
+  .swiperNavBtn::before {
+    font-size: 16px;
+  }
+  
+  .swiperSlide {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiperSlide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
