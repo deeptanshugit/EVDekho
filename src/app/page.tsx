@@ -1,24 +1,26 @@
 import styles from "./page.module.css";
-import Featured from "./components/featured/featured";
-import Related from "./components/cards/related";
-import FAQS from "./components/faqs/faqs";
-import SimpleSlider from "./components/slider/simpleSlider";
 import BrandSelector from "./components/brands/BrandSelector";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Col, Container, Row } from "react-bootstrap";
+import VehicleSearch from "./components/search/vehicle/VehicleSearch";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-
-      <div className={styles.center}>
-        <Featured imageURL="/scooter/honda-activa-6g-scooter.jpg" />
-      </div>
-
-      <BrandSelector></BrandSelector>
-      
-    </main>
+    <Row>
+      <Col sm={12} md={12} lg={12}>
+        <div className={styles.container}>
+          <div className={styles.overlay}>
+            <h3> Find the right electric vehicle </h3>
+            <h4> Get comprehensive information on electric vehicles </h4>
+            <VehicleSearch></VehicleSearch>
+          </div>
+        </div>
+      </Col>
+      <Col sm={12} md={12} lg={12} className="mt-5">
+        <BrandSelector></BrandSelector>
+      </Col>
+    </Row>
   );
 }
