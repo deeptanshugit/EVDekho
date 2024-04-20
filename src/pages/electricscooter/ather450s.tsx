@@ -54,6 +54,10 @@ const Ather450S = () => {
       </div>
 
       <div className="p-5 mt-2">
+        <CostCalculator battery_capacity_kwh={2.9} range_km={100} vehicleName={"Ather 450S"}></CostCalculator>
+      </div>
+
+      <div className="p-5 mt-2">
         <FAQS></FAQS>
       </div>
     </div>
