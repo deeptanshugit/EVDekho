@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import RelatedVehicle from "@/app/components/carousel/RelatedVehicle/RelatedVehicle";
 import VehiclePrice from "@/app/components/carousel/VehiclePrice/vehicleprice";
 import { Col, Row } from "react-bootstrap";
+import CostCalculator from "@/app/components/costcalculator/CostCalculator";
 
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);
@@ -45,6 +46,10 @@ const Ather450S = () => {
 
       <div className="p-5 mt-2">
         <VehiclePrice></VehiclePrice>
+      </div>
+
+      <div className="p-5 mt-2">
+        <CostCalculator battery_capacity_kwh={2.9} range_km={100} vehicleName={"Ather 450S"}></CostCalculator>
       </div>
 
       <div className="p-5 mt-2">
