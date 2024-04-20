@@ -2,6 +2,7 @@ import Scooter from "@/app/components/cards/scooter";
 import withLayout from "@/app/components/WithLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Row } from "react-bootstrap";
+import styles from "./scooters.module.css";
 
 const scooters = [
   {
@@ -28,18 +29,24 @@ const scooters = [
 
 const OlaScooters = () => {
   return (
-    <div>
-      <h1>Electric Scooters By OLA</h1>
-      <Row>
-        {scooters.map((scooter, index) => (
-          <Col key={index}>
-            <div>
-              <Scooter scooter={scooter} />
-            </div>
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <main className={styles.main}>
+      <div className={styles.container}>
+        <div>
+          <h1>Electric Scooters By OLA</h1>
+        </div>
+        <div>
+          <Row xs="auto">
+            {scooters.map((scooter, index) => (
+              <Col c key={index}>
+                <div>
+                  <Scooter scooter={scooter} />
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      </div>
+    </main>
   );
 };
 
