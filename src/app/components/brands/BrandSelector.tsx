@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { Row, Container, Col } from "react-bootstrap";
 import styles from "./brandselector.module.css";
@@ -8,12 +8,17 @@ const brandLogos = [
   {
     name: "Ather",
     logo: "/brands/Ather.png",
-    to: "/ather/scooters"
+    to: "/ather/scooters",
   },
   {
     name: "Ola",
     logo: "/brands/Ola.png",
     to: "/ola/scooters",
+  },
+  {
+    name: "Ampere",
+    logo: "/brands/Ampere.png",
+    to: "/ampere/scooters",
   },
 ];
 
@@ -42,20 +47,140 @@ const BrandSelector = () => {
     router.push(to);
   };
   return (
-    <Container>
-      <Row>
+    <div>
+      <Row className="p-5">
         <div>
-          <h2> Choose Brand </h2>
+          <h3> Browse EVs by brand </h3>
         </div>
-        {brandLogos.map((brand, index) => (
-          <Col key={index}>
-            <div className={styles.imageContainer} onClick={() => handleImageClick(brand.to)}>
-              <Image src={brand.logo} alt="image" height={100} width={280} />
-            </div>
-          </Col>
-        ))}
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/TVS.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/Ather.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/Ola.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/Gogoro.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/Bajaj.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
       </Row>
-    </Container>
+
+      <Row className="p-5">
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/HeroElectric.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/Okaya.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/OkinawaLogo.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/Vida.png"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className={styles.imageContainer}>
+            <Image
+              src={"/brands/JoyeBike.jpeg"}
+              alt="image"
+              layout="responsive"
+              width={100}
+              height={100}
+            />
+          </div>
+        </Col>
+      </Row>
+    </div>
+    // <Container>
+    //   <Row>
+    //     <div>
+    //       <h2> Choose Brand </h2>
+    //     </div>
+    //     {brandLogos.map((brand, index) => (
+    //       <Col key={index}>
+    //         <div className={styles.imageContainer} onClick={() => handleImageClick(brand.to)}>
+    //           <Image src={brand.logo} alt="image" layout="responsive" width={100} height={100}/>
+    //         </div>
+    //       </Col>
+    //     ))}
+    //   </Row>
+    // </Container>
   );
 };
 
