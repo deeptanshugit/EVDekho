@@ -64,7 +64,7 @@ const BrandSelector = () => {
           </div>
         </Col>
         <Col>
-          <div className={styles.imageContainer}>
+          <div className={styles.imageContainer} onClick={() => handleImageClick('/ather/scooters')}>
             <Image
               src={"/brands/Ather.png"}
               alt="image"
@@ -75,7 +75,7 @@ const BrandSelector = () => {
           </div>
         </Col>
         <Col>
-          <div className={styles.imageContainer}>
+          <div className={styles.imageContainer} onClick={() => handleImageClick('/ola/scooters')}>
             <Image
               src={"/brands/Ola.png"}
               alt="image"
