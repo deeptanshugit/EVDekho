@@ -97,7 +97,7 @@ export default function SpecificationTable(props: Props) {
   };
 
   return (
-    <TabContainer id="left-tabs-example" defaultActiveKey="specifications">
+    <TabContainer id="specification-and-features" defaultActiveKey="specifications">
       <Row>
         <Col xs={12} md={12} lg={12}>
           <h4 className="mb-4"> Ather 450S Specifications and Features</h4>

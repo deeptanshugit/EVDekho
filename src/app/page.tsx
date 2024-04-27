@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import BrandSelector from "./components/brands/BrandSelector";
+import BrandSelector from "./components/browse/BrandSelector/BrandSelector";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
@@ -18,6 +18,7 @@ export default function Home() {
           </div>
         </div>
       </Col>
+
       <Col sm={12} md={12} lg={12} className="mt-5">
         <BrandSelector></BrandSelector>
       </Col>
