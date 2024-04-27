@@ -1,10 +1,12 @@
 import styles from "./page.module.css";
 import BrandSelector from "./components/brands/BrandSelector";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import VehicleSearch from "./components/search/vehicle/VehicleSearch";
 import Image from "next/image";
+import TrendingVehicle from "./components/carousel/TrendingVehicle/TrendingVehicle";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
   return (
@@ -21,6 +23,7 @@ export default function Home() {
       <Col sm={12} md={12} lg={12} className="mt-5">
         <BrandSelector></BrandSelector>
       </Col>
+      
     </Row>
   );
 }

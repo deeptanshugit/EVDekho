@@ -13,6 +13,7 @@ import VehiclePrice from "@/app/components/carousel/VehiclePrice/vehicleprice";
 import { Col, Row } from "react-bootstrap";
 import VehicleName from "@/app/components/vehiclename/VehicleName";
 import CostCalculator from "@/app/components/costcalculator/CostCalculator";
+import TrendingVehicle from "@/app/components/carousel/TrendingVehicle/TrendingVehicle";
 
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);

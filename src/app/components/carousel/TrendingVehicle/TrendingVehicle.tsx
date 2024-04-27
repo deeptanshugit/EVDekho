@@ -1,21 +1,21 @@
 import Image from "next/image";
-import styles from "./RelatedVehicle.module.css";
+import styles from './trendingvehicle.module.css'
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+
 import { Navigation } from "swiper/modules";
 import { Button, Col, Row } from "react-bootstrap";
 
-export default function RelatedVehicle() {
+export default function TrendingVehicle() {
   return (
     <Row>
       <Col>
         <div>
-          <h4> Scooters similar to Ather 450S</h4>
+          <h4> Trending Scooters Of April 2024</h4>
         </div>
         <div>
           <Swiper
