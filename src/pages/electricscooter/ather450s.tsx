@@ -12,17 +12,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);
+  const [prices, setPrices] = useState({} as any)
 
   useEffect(() => {
     // Fetch vehicle data from your backend API
     fetch(
-      "https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/vehicles/6616255497bf58c85bf40d8b"
+      "http://localhost:3001/api/v1/vehicles/6616255497bf58c85bf40d8b"
     )
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setVehicleData(data);
+        setVehicleData(data.vehicle);
+        setPrices(data.prices)
       })
       .catch((error) => console.error("Error fetching vehicle data:", error));
   }, []);
@@ -34,7 +36,7 @@ const Ather450S = () => {
       </div>
 
       <div className="p-5 mt-0">
-        <Featured imageURL="/electricscooter/ather/ather450s.png" />
+        <Featured imageURL="/electricscooter/ather/ather450s.png" prices={prices} />
       </div>
 
       <div className="p-5">

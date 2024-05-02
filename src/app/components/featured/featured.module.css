@@ -17,6 +17,11 @@
     padding: 10px;
     margin: 5px;
   }
+
+  .button:hover {
+    background-color: rgba(237, 235, 235, 0.688);
+    cursor: pointer;
+  }
   
   .imageContainer {
     max-width: 500px; /* Adjust as needed */

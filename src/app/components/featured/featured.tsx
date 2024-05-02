@@ -40,16 +40,28 @@ const images = [
 
 interface FeaturedProps {
   imageURL: string;
+  prices: any
 }
 
 export default function Featured(props: FeaturedProps) {
   const [showVariantModal, setShowVariantModal] = useState(false);
   const [showPriceModal, setShowPriceModal] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null)
+  const [currentVehiclePrice, setCurrentVehiclePrice] = useState<string | null>(null)
+
   const handleVariantModalShow = () => setShowVariantModal(true);
   const handleVariantModalClose = () => setShowVariantModal(false);
 
   const handlePriceModalShow = () => setShowPriceModal(true);
   const handlePriceModalClose = () => setShowPriceModal(false);
+
+  const handleCitySelect = (city: string) =>  {
+    setSelectedCity(city)
+    const vehiclePriceInSelectedCity = props.prices.pricesInTopCities.find((item: any) => 
+      item.cityName === city
+    )
+    setCurrentVehiclePrice(vehiclePriceInSelectedCity ? vehiclePriceInSelectedCity.formattedPrice : null )
+  }
 
   return (
     <Container fluid="xs" className={styles.featuredContainer}>
@@ -108,7 +120,7 @@ export default function Featured(props: FeaturedProps) {
               <div className={styles.button} onClick={handlePriceModalShow}>
                 <div>
                   <h5> City </h5>
-                  <p> Delhi, India </p>
+                  <p> {selectedCity ? `${selectedCity}, India `: 'Select your city'} </p>
                 </div>
                 <div>
                   <FontAwesomeIcon width={15} icon={faChevronRight} />
@@ -130,8 +142,8 @@ export default function Featured(props: FeaturedProps) {
           <Row className="mt-2 p-3">
             <Col>
               <div className="p-2">
-                <h3> ₹ 1,51,095 </h3>
-                <p> On road price, Delhi </p>
+                <h3> ₹ {currentVehiclePrice && selectedCity ? currentVehiclePrice : props.prices.exshowroom} </h3>
+                <p> {selectedCity ? `On road price, ${selectedCity}` : 'Avg Ex Showroom Price'} </p>
               </div>
             </Col>
           </Row>
@@ -150,6 +162,7 @@ export default function Featured(props: FeaturedProps) {
       <PriceModal
         showPriceModal={showPriceModal}
         handleClose={handlePriceModalClose}
+        onCitySelect={handleCitySelect}
       ></PriceModal>
     </Container>
   );

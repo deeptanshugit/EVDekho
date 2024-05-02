@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Modal,
   ModalBody,
@@ -9,10 +8,14 @@ import {
   Container,
   Row,
   Col,
+  Card,
 } from "react-bootstrap";
 
-import styles from './variantModal.module.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
+import { useState } from "react";
+import styles from "./pricemodal.module.css";
+import CitySearch from "../search/city/CitySearch";
 
 const popularCities = [
   {
@@ -40,9 +43,6 @@ const popularCities = [
     image: "/hyderabad-charminar.png",
     price: "1,18,984",
   },
-];
-
-const popularCities2 = [
   {
     city: "Navi Mumbai",
     image: "/Navi-Mumbai.png",
@@ -73,42 +73,78 @@ const popularCities2 = [
 interface PriceModalProps {
   showPriceModal: boolean;
   handleClose: () => void;
+  onCitySelect: (city: string) => void
 }
 
-export default function PriceModal(
-  { showPriceModal, handleClose }: PriceModalProps,
-  props: any
-) {
+export default function PriceModal({ showPriceModal, handleClose, onCitySelect }: PriceModalProps, props: any) {
+  const [cities, setCities] = useState([]);
+
+  const handleCitySelect = (city: string) => {
+    onCitySelect(city)
+    handleClose()
+  }
+
+  const fetchCities = async () => {
+    const response = await fetch("http://localhost:3001/api/v1/cities");
+    const cities = await response.json();
+    setCities(cities);
+  };
+
+  const handleModalShow = () => {
+    fetchCities();
+  };
+
   return (
-    <div className="modal show" style={{ position: "initial" }}>
-      <Modal {...props} size="lg" show={showPriceModal} onHide={handleClose}>
-        <ModalHeader closeButton>
-          <ModalTitle> Select your city </ModalTitle>
-        </ModalHeader>
-
-        <ModalBody>
-          <Container>
-            <Row>
+    <Modal
+      show={showPriceModal}
+      onHide={handleClose}
+      onShow={handleModalShow}
+      size="lg"
+      scrollable
+    >
+      <ModalHeader closeButton>
+        <ModalTitle> Select your city </ModalTitle>
+      </ModalHeader>
+      <ModalBody>
+        <Container>
+          <Row>
+            <Col>
+              <CitySearch onCitySelect={handleCitySelect}></CitySearch>
+            </Col>
+          </Row>
+        </Container>
+        <Container className="mt-4">
+          <Row>
+            <h4 className="mb-4"> Popular Cities </h4>
             {popularCities.map((price, index) => (
-              <Col key={index}>
-              <Image src={price.image} alt="city-image" width={100} height={100}></Image>
-              <p>{price.city}</p>
+              <Col key={index} sm={12} md={3} lg={3} className={styles.popularCities}>
+                <div className="d-flex flex-column align-items-center p-2" onClick={() => handleCitySelect(price.city)}>
+                  <Image
+                    src={price.image}
+                    alt="city-image"
+                    width={100}
+                    height={100}
+                  ></Image>
+                  <p>{price.city}</p>
+                </div>
               </Col>
-              ))}
-            </Row>
+            ))}
+          </Row>
+        </Container>
 
-            <Row>
-            {popularCities2.map((price, index) => (
-              <Col key={index}>
-              <Image src={price.image} alt="city-image" width={100} height={100}></Image>
-              <p>{price.city}</p>
-              </Col>
+        <Container>
+          <Row>
+            <Col sm={12} md={12} lg={12}>
+              <h4 className="mb-4"> All Cities </h4>
+              {cities.map((city: any, index) => (
+                <ul key={index} className={styles.cityList}>
+                  <li className="" onClick={() => handleCitySelect(city.name)}>{city.name}</li>
+                </ul>
               ))}
-            </Row>
-
-          </Container>
-        </ModalBody>
-      </Modal>
-    </div>
+            </Col>
+          </Row>
+        </Container>
+      </ModalBody>
+    </Modal>
   );
 }
