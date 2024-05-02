@@ -48,6 +48,7 @@ export default function Featured(props: FeaturedProps) {
   const [showPriceModal, setShowPriceModal] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
   const [currentVehiclePrice, setCurrentVehiclePrice] = useState<string | null>(null)
+  const [selectedVariant, setSelectedVariant] = useState<string | null>(null)
 
   const handleVariantModalShow = () => setShowVariantModal(true);
   const handleVariantModalClose = () => setShowVariantModal(false);
@@ -61,6 +62,10 @@ export default function Featured(props: FeaturedProps) {
       item.cityName === city
     )
     setCurrentVehiclePrice(vehiclePriceInSelectedCity ? vehiclePriceInSelectedCity.formattedPrice : null )
+  }
+
+  const handleVariantSelect = (variant: string) => {
+    setSelectedVariant(variant)
   }
 
   return (
@@ -118,7 +123,7 @@ export default function Featured(props: FeaturedProps) {
           <Row className="mt-5 p-3">
             <Col sm={12} md={6} lg={6}>
               <div className={styles.button} onClick={handlePriceModalShow}>
-                <div>
+                <div className={styles.buttonContainer}>
                   <h5> City </h5>
                   <p> {selectedCity ? `${selectedCity}, India `: 'Select your city'} </p>
                 </div>
@@ -129,9 +134,9 @@ export default function Featured(props: FeaturedProps) {
             </Col>
             <Col sm={12} md={6} lg={6}>
               <div className={styles.button} onClick={handleVariantModalShow}>
-                <div>
+                <div className={styles.buttonContainer}>
                   <h5> Variant </h5>
-                  <p> 2.3kW </p>
+                  <p> {selectedVariant ? selectedVariant : 'Select variant'} </p>
                 </div>
                 <div>
                   <FontAwesomeIcon width={15} icon={faChevronRight} />
@@ -158,6 +163,7 @@ export default function Featured(props: FeaturedProps) {
         vehicleId={1}
         showVariantModal={showVariantModal}
         handleClose={handleVariantModalClose}
+        onVariantSelect={handleVariantSelect}
       ></VariantModal>
       <PriceModal
         showPriceModal={showPriceModal}
