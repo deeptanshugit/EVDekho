@@ -1,0 +1,29 @@
+.navItem {
+    color: aquamarine;
+}
+
+.navLink {
+    color: #6f6f6f;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.navLink:focus, .navLink:hover {
+    color: #00afa0
+}
+
+.navLink .active {
+    color: #00afa0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.nav {
+    border-bottom-color: #e1e1e1;
+    border-style: solid;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-width: 1px;
+    align-items: flex-start;
+}
