@@ -1,6 +1,5 @@
 "use client";
 import { Fragment } from "react";
-import styles from "./specificationTable.module.css";
 import { useState } from "react";
 import {
   Card,
@@ -42,7 +41,7 @@ export default function SpecificationTable(props: Props) {
 
   const renderRows = () => {
     return Object.entries(props.data)
-      .filter(([key]) => !["_id", "brand", "model", "Features"].includes(key))
+      .filter(([key]) => !["_id", "brand", "model", "Features", "vehicleId"].includes(key))
       .map(([category, properties]) => (
         <Fragment key={category}>
           <tr>
