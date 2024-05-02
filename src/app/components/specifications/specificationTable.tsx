@@ -12,6 +12,7 @@ import {
   TabContent,
   TabPane,
 } from "react-bootstrap";
+import styles from './specificationTable.module.css'
 
 interface VehicleData {
   [key: string]: {
@@ -100,12 +101,12 @@ export default function SpecificationTable(props: Props) {
       <Row>
         <Col xs={12} md={12} lg={12}>
           <h4 className="mb-4"> Ather 450S Specifications and Features</h4>
-          <Nav variant="tabs">
-            <NavItem>
-              <NavLink eventKey="specifications"> Specifications </NavLink>
+          <Nav className={styles.nav} variant="underline">
+            <NavItem className={styles.navItem}>
+              <NavLink className={styles.navLink} eventKey="specifications"> Specifications </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink eventKey="features"> Features </NavLink>
+            <NavItem className={styles.navItem} >
+              <NavLink eventKey="features"  className={styles.navLink}> Features </NavLink>
             </NavItem>
           </Nav>
           <TabContent>
