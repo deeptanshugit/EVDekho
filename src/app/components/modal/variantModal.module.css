@@ -4,4 +4,6 @@
     border-color: gray;
     padding: 30px;
     cursor: pointer;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }

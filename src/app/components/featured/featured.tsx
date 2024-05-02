@@ -143,6 +143,7 @@ export default function Featured(props: FeaturedProps) {
         </Col>
       </Row>
       <VariantModal
+        vehicleId={1}
         showVariantModal={showVariantModal}
         handleClose={handleVariantModalClose}
       ></VariantModal>
