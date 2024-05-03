@@ -58,7 +58,7 @@ export default function Featured(props: FeaturedProps) {
 
   const handleCitySelect = (city: string) =>  {
     setSelectedCity(city)
-    const vehiclePriceInSelectedCity = props.prices.pricesInTopCities.find((item: any) => 
+    const vehiclePriceInSelectedCity = props.prices?.pricesInTopCities.find((item: any) => 
       item.cityName === city
     )
     setCurrentVehiclePrice(vehiclePriceInSelectedCity ? vehiclePriceInSelectedCity.formattedPrice : null )
@@ -147,7 +147,7 @@ export default function Featured(props: FeaturedProps) {
           <Row className="mt-2 p-3">
             <Col>
               <div className="p-2">
-                <h3> ₹ {currentVehiclePrice && selectedCity ? currentVehiclePrice : props.prices.exshowroom} </h3>
+                <h3> ₹ {currentVehiclePrice && selectedCity ? currentVehiclePrice : props.prices?.exshowroom} </h3>
                 <p> {selectedCity ? `On road price, ${selectedCity}` : 'Avg Ex Showroom Price'} </p>
               </div>
             </Col>
