@@ -39,10 +39,12 @@ const Ather450S = () => {
         <div className="mb-2">
           <VehicleNavigationTab />
         </div>
+        <div>
         <Featured
           imageURL="/electricscooter/ather/ather450s.png"
           prices={prices as any || {}}
         />
+        </div>
       </div>
 
       <div className="p-1 mt-5" id="vehicleSpecificationTable">
