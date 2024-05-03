@@ -19,8 +19,7 @@ export default function RelatedVehicle() {
         </div>
         <div>
           <Swiper
-            slidesPerView={5}
-            spaceBetween={10}
+            slidesPerView={2}
             pagination={{
               clickable: true,
             }}
@@ -36,27 +35,36 @@ export default function RelatedVehicle() {
                 spaceBetween: 0,
               },
               640: {
-                slidesPerView: 1,
-                spaceBetween: 0,
+                slidesPerView: 2,
+                spaceBetween: 10,
               },
               768: {
                 slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              960: {
+                slidesPerView: 3,
                 spaceBetween: 0,
               },
+              1008: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
               1024: {
-                slidesPerView: 5,
+                slidesPerView: 3,
                 spaceBetween: 10,
               },
             }}
           >
-            <SwiperSlide className={styles.swiperSlide}>
-                <div className="card">
+            <Container>
+              <SwiperSlide className={styles.swiperSlide}>
+                <div className="card w-100">
                   <div className={styles.cardImageContainer}>
                     <Image
                       src="/ather/ather-450x.png"
                       alt=""
-                      height={400}
-                      width={400}
+                      height={500}
+                      width={500}
                     ></Image>
                   </div>
                   <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
@@ -69,18 +77,17 @@ export default function RelatedVehicle() {
                     <p className={styles.cardContentP}> On road price, Delhi</p>
                     <Button> View more </Button>
                   </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlide}>
-                <div className="card">
-                  <div className="image-section">
-                    <Image
-                      src="/ather/ather-apex.png"
-                      alt=""
-                      height={400}
-                      width={400}
-                    ></Image>
-                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiperSlide}>
+                <div className="card w-100">
+                  <Image
+                    src="/ather/ather-apex.png"
+                    alt=""
+                    layout="responsive"
+                    height={500}
+                    width={500}
+                  ></Image>
                   <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
                     <h5> Ather Apex</h5>
                     <p className={styles.cardContentP}>
@@ -91,10 +98,10 @@ export default function RelatedVehicle() {
                     <p className={styles.cardContentP}> On road price, Delhi</p>
                     <Button> View more </Button>
                   </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlide}>
-                <div className="card">
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiperSlide}>
+                <div className="card w-100">
                   <div className="image-section">
                     <Image
                       src="/electricscooter/ola/ola-s1-pro.png"
@@ -113,10 +120,10 @@ export default function RelatedVehicle() {
                     <p className={styles.cardContentP}> On road price, Delhi</p>
                     <Button> View more </Button>
                   </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlide}>
-                <div className="card">
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiperSlide}>
+                <div className="card w-100">
                   <div className="image-section">
                     <Image
                       src="/electricscooter/ola/ola-s1-air.png"
@@ -135,10 +142,10 @@ export default function RelatedVehicle() {
                     <p className={styles.cardContentP}> On road price, Delhi</p>
                     <Button> View more </Button>
                   </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlide}>
-                <div className="card">
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiperSlide}>
+                <div className="card w-100">
                   <div className="image-section">
                     <Image
                       src="/electricscooter/ola/ola-s1-x.png"
@@ -157,10 +164,10 @@ export default function RelatedVehicle() {
                     <p className={styles.cardContentP}> On road price, Delhi</p>
                     <Button> View more </Button>
                   </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlide}>
-                <div className="card">
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiperSlide}>
+                <div className="card w-100">
                   <div className="image-section">
                     <Image
                       src="/electricscooter/ola/ola-s1-x-plus.png"
@@ -180,7 +187,8 @@ export default function RelatedVehicle() {
                     <Button> View more </Button>
                   </div>
                 </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            </Container>
             <div className={`${styles.swiperNavBtn} swiper-button-next`}></div>
             <div className={`${styles.swiperNavBtn} swiper-button-prev`}></div>
           </Swiper>

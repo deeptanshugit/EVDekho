@@ -33,13 +33,17 @@ interface VariantModalProps {
   showVariantModal: boolean;
   handleClose: () => void;
   vehicleId: number;
+  onVariantSelect: (variant: string) => void
 }
 
-export default function VariantModal(
-  { showVariantModal, handleClose }: VariantModalProps,
-  props: any
-) {
+export default function VariantModal({ showVariantModal, handleClose, onVariantSelect }: VariantModalProps,props: any) {
   const [vehicleVariants, setVehicleVariants] = useState([]);
+
+  const handleVariantSelect = (variant: string) => {
+    console.log(variant);
+    onVariantSelect(variant)
+    handleClose()
+  }
 
   const fetchVariants = async () => {
     try {
@@ -47,7 +51,6 @@ export default function VariantModal(
         `http://localhost:3001/api/v1/variants/${props.vehicleId}`
       );
       const variants = await response.json();
-      console.log(variants, "variants");
 
       setVehicleVariants(variants.variants);
     } catch (error) {
@@ -78,16 +81,20 @@ export default function VariantModal(
             vehicleVariants.map((variant: any, index: any) => (
               <div key={index} className={styles.variantcontainer}>
                 <Container>
-                  <Row>
+                  <Row onClick={() => (handleVariantSelect(variant.name))}>
                     <Col xs={12} md={6} sm={12} lg={6}>
-                      <h5>{variant.name}</h5>
-                      <p>
-                        {" "}
-                        {variant.range} | {variant.topSpeed}{" "}
-                      </p>
+                      <div>
+                        <h5>{variant.name}</h5>
+                        <p>
+                          {" "}
+                          {variant.range} | {variant.topSpeed}{" "}
+                        </p>
+                      </div>
                     </Col>
                     <Col xs={12} md={6} sm={12} lg={6}>
-                      <h5>₹ {variant.price}</h5>
+                      <div>
+                        <h5>₹ {variant.price}</h5>
+                      </div>
                     </Col>
                   </Row>
                 </Container>

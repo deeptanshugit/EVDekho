@@ -1,8 +1,8 @@
 .featuredContainer {
     border-style: solid;
     border-width: 1px;
-    border-radius: 10px;
-    border-color: #333;
+    border-radius: 5px;
+    border-color: #e1e1e1;
   }
   
   .button {
@@ -12,10 +12,18 @@
     justify-content: space-between;
     border-style: solid;
     border-width: 1px;
-    border-radius: 10px;
-    border-color: #333;
+    border-radius: 5px;
+    border-color: #e1e1e1;
     padding: 10px;
     margin: 5px;
+  }
+
+  .buttonContainer h5 {
+    font-size: 13px;
+  }
+  .buttonContainer p {
+    font-size: 13px;
+    font-weight: 600;
   }
 
   .button:hover {

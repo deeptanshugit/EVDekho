@@ -106,3 +106,16 @@
       margin: 16px 0;
     }
   }
+
+  .locationButton {
+    border-color: #120f0b;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .locationButton:hover {
+    color: #00afa0;
+    border-color: #00afa0;
+    border-style: solid;
+    border-width: 1px;
+  }
