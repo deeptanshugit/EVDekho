@@ -42,23 +42,24 @@ const BrandSelector = () => {
   };
   return (
     <TabContainer id="browse-evs" defaultActiveKey="brands">
-        <Row className="p-5">
-          <div>
-            <h3> Browse EVs by </h3>
-          </div>
-          <Nav variant="tabs">
-            <NavItem>
-              <NavLink eventKey="brands"> Brands </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink eventKey="budget"> Budget </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink eventKey="range"> Range </NavLink>
-            </NavItem>
-          </Nav>
-          <TabContent>
-            <TabPane eventKey="brands">
+      <Row className="p-5">
+        <div>
+          <h3> Browse EVs by </h3>
+        </div>
+        <Nav variant="tabs">
+          <NavItem>
+            <NavLink eventKey="brands"> Brands </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink eventKey="budget"> Budget </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink eventKey="range"> Range </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent>
+          <TabPane eventKey="brands">
+            <Container>
               <Row>
                 <Col>
                   <div className={styles.imageContainer}>
@@ -173,15 +174,16 @@ const BrandSelector = () => {
                   </div>
                 </Col>
               </Row>
-            </TabPane>
-            <TabPane eventKey="budget">
-              <BudgetSelector></BudgetSelector>
-            </TabPane>
-            <TabPane eventKey="range">
-              <RangeSelector></RangeSelector>
-            </TabPane>
-          </TabContent>
-        </Row>
+            </Container>
+          </TabPane>
+          <TabPane eventKey="budget">
+            <BudgetSelector></BudgetSelector>
+          </TabPane>
+          <TabPane eventKey="range">
+            <RangeSelector></RangeSelector>
+          </TabPane>
+        </TabContent>
+      </Row>
     </TabContainer>
   );
 };

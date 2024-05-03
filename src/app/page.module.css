@@ -27,3 +27,25 @@
   font-weight: bold;
   color: #ffffff;
 }
+
+@media screen and (min-width: 1008px) {
+  .bodyContainer {
+      max-width: 1008px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 960px) {
+.bodyContainer {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+
+@media screen and (min-width: 800px) {
+.bodyContainer {
+    width: 100%;
+}
+}
