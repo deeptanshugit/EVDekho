@@ -40,7 +40,7 @@ const images = [
 
 interface FeaturedProps {
   imageURL: string;
-  prices: any
+  prices?: any
 }
 
 export default function Featured(props: FeaturedProps) {
