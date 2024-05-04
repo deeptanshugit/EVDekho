@@ -17,7 +17,7 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons/faLocationDot";
-import InputGroupText from "react-bootstrap/esm/InputGroupText";
+import VehicleSearch from "../search/vehicle/VehicleSearch";
 
 export default function NavigationBar() {
   // adding the states
@@ -38,24 +38,30 @@ export default function NavigationBar() {
         <NavbarCollapse className="justify-content-end">
           <div className="d-flex">
             <div>
-              <Nav>
+              {/* <Nav>
                 <NavLink href="/electricscooter/ather450s">Ather 450s</NavLink>
-              </Nav>
+              </Nav> */}
             </div>
             <div>
               <Form className="d-flex">
-                <FormControl
+                <div className="p-2">
+                <VehicleSearch></VehicleSearch>
+                </div>
+                {/* <FormControl
                   type="search"
                   placeholder="Search"
                   className="me-2"
                   aria-label="Search"
                 />
+                */}
+                <div className="p-2">
                 <Button
                   className={styles.locationButton}
                   variant="outine-secondary"
                 >
                   <FontAwesomeIcon icon={faLocationDot} />
-                </Button>
+                </Button> 
+                </div>
               </Form>
             </div>
           </div>
