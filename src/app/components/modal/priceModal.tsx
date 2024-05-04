@@ -85,7 +85,7 @@ export default function PriceModal({ showPriceModal, handleClose, onCitySelect }
   }
 
   const fetchCities = async () => {
-    const response = await fetch("http://localhost:3001/api/v1/cities");
+    const response = await fetch("https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/cities");
     const cities = await response.json();
     setCities(cities);
   };
