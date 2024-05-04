@@ -48,7 +48,7 @@ export default function VariantModal({ showVariantModal, handleClose, onVariantS
   const fetchVariants = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/v1/variants/${props.vehicleId}`
+        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/variants/${props.vehicleId}`
       );
       const variants = await response.json();
 

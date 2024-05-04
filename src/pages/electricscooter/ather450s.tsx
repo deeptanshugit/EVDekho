@@ -18,7 +18,7 @@ const Ather450S = () => {
 
   useEffect(() => {
     // Fetch vehicle data from your backend API
-    fetch("http://localhost:3001/api/v1/vehicles/6616255497bf58c85bf40d8b")
+    fetch("https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/vehicles/6616255497bf58c85bf40d8b")
       .then((response) => {
         return response.json();
       })

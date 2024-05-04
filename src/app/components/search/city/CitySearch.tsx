@@ -28,7 +28,7 @@ export default function CitySearch( {onCitySelect} : citySearchProps) {
   const debouncedSearch = debounce(async (searchValue: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/v1/cities/search/city?q=${encodeURIComponent(
+        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/cities/search/city?q=${encodeURIComponent(
           searchValue
         )}`
       );
