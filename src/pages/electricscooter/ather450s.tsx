@@ -11,23 +11,59 @@ import styles from "./ather450s.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import VehicleNavigationTab from "@/app/components/tabs/VehicleNavigationTab/VehicleNavigationTab";
+import KeySpecs from "@/app/components/specifications/keySpecifications/KeySpecs";
 
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);
   const [prices, setPrices] = useState({} as any);
+  const [defaultVariantId, setDefaultVariantId] = useState(null);
+  const [pricesInTopCities, setpricesInTopCities] = useState({} as any);
+  const [keySpecs, setKeySpecs] = useState({} as any);
+  const [vehcleVariants, setVehicleVariants] = useState(null);
 
-  useEffect(() => {
-    // Fetch vehicle data from your backend API
-    fetch("https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/vehicles/6616255497bf58c85bf40d8b")
+  const fetchDefaultVariantId = async () => {
+    try {
+      const response = await fetch(
+        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/variants/search/vehicle?vehicleId=66387bb104fa76d91a3b868d`
+      );
+      console.log(response);
+      const data = await response.json();
+      console.log(data);
+      if (data) {
+        // setVehicleVariants(data)
+        // console.log(vehcleVariants, 'variants');
+        const defaultVariant = data.find(
+          (variant: { isDefault: boolean }) => variant.isDefault === true
+        );
+
+        console.log(defaultVariant, "default");
+        if (defaultVariant) {
+          fetchSpecifications(defaultVariant._id);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching variants:", error);
+    }
+  };
+
+  const fetchSpecifications = async (variantId: any) => {
+    await fetch(
+      `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/specifications/search/vehicle?variantId=${variantId}&vehicleId=66387bb104fa76d91a3b868d`
+    )
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setVehicleData(data.vehicle);
+        setVehicleData(data.specifications);
         setPrices(data.prices);
-      })
-      .catch((error) => console.error("Error fetching vehicle data:", error));
-  }, []);
+        setpricesInTopCities(data.prices.pricesInTopCities);
+        setKeySpecs(data.specifications.keySpecifications);
+      });
+  };
+
+  useEffect(() => {
+    fetchDefaultVariantId();
+  }, [fetchDefaultVariantId]);
 
   return (
     <div className={styles.bodyContainer}>
@@ -40,11 +76,15 @@ const Ather450S = () => {
           <VehicleNavigationTab />
         </div>
         <div>
-        <Featured
-          imageURL="/electricscooter/ather/ather450s.png"
-          prices={prices as any || {}}
-        />
+          <Featured
+            imageURL="/electricscooter/ather/ather450s.png"
+            prices={(prices as any) || {}}
+          />
         </div>
+      </div>
+
+      <div className="p-1 mt-5">
+        <KeySpecs keySpecs={keySpecs}></KeySpecs>
       </div>
 
       <div className="p-1 mt-5" id="vehicleSpecificationTable">
@@ -56,7 +96,9 @@ const Ather450S = () => {
       </div>
 
       <div className="p-1 mt-5" id="vehiclePrice">
-        <VehiclePrice></VehiclePrice>
+        {pricesInTopCities && pricesInTopCities.length > 0 && (
+          <VehiclePrice pricesInTopCities={pricesInTopCities} />
+        )}
       </div>
 
       <div className="p-1 mt-5" id="vehicleCostCalculator">

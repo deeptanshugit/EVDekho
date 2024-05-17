@@ -20,52 +20,52 @@ import CitySearch from "../search/city/CitySearch";
 const popularCities = [
   {
     city: "Mumbai",
-    image: "/mumbai.png",
+    image: "/cities/mumbai.png",
     price: "1,20,453",
   },
   {
     city: "Bangalore",
-    image: "/bangalore.png",
+    image: "/cities/bangalore.png",
     price: "1,25,154",
   },
   {
     city: "Delhi",
-    image: "/delhi.png",
+    image: "/cities/delhi.png",
     price: "1,22,125",
   },
   {
     city: "Pune",
-    image: "/pune.png",
+    image: "/cities/pune.png",
     price: "1,15,753",
   },
   {
     city: "Hyderabad",
-    image: "/hyderabad-charminar.png",
+    image: "/cities/hyderabad.png",
     price: "1,18,984",
   },
   {
     city: "Navi Mumbai",
-    image: "/Navi-Mumbai.png",
+    image: "/cities/navi-mumbai.png",
     price: "1,20,453",
   },
   {
     city: "Ahmedabad",
-    image: "/Ahmedabad.png",
+    image: "/cities/ahmedabad.png",
     price: "1,25,154",
   },
   {
     city: "Chandigarh",
-    image: "/Chandigarh.png",
+    image: "/cities/chandigarh.png",
     price: "1,22,125",
   },
   {
     city: "Kolkata",
-    image: "/Kolkata.png",
+    image: "/cities/kolkata.png",
     price: "1,15,753",
   },
   {
     city: "Chennai",
-    image: "/chennai.png",
+    image: "/cities/chennai.png",
     price: "1,18,984",
   },
 ];

@@ -23,7 +23,6 @@ export default function VehicleSearch() {
 
   const debouncedSearch = debounce(async (searchValue: string) => {
     try {
-      console.log(searchValue, "search value");
 
       const response = await fetch(
         `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/vehicles/search/vehicle?q=${encodeURIComponent(
@@ -75,7 +74,7 @@ export default function VehicleSearch() {
         {showResults && (
           <ListGroup className={styles.searchResults}>
             { searchResults.length > 0 && searchResults.map((item: any, index) => (
-              <ListGroupItem action key={index} onClick={() => redirectToVehiclePage(item.brand,item.model.replace(/\s+/g, '').toLowerCase())}>{item.model}</ListGroupItem>
+              <ListGroupItem action key={index} onClick={() => redirectToVehiclePage(item.brandName, item.modelName.replace(/\s+/g, '').toLowerCase())}>{item.modelName}</ListGroupItem>
             ))}
           </ListGroup>
         )}
