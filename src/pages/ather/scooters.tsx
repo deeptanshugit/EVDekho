@@ -46,7 +46,7 @@ const AtherScooters = () => {
 
   const fetchScooters = async() => {
     const brandName = 'Ather'
-    const response = await fetch(`http://localhost:3001/api/v1/vehicles/list/search?brandName=${brandName}`)
+    const response = await fetch(`https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/vehicles/list/search?brandName=${brandName}`)
     const scooters = await response.json()
     setScooters(scooters)
   }

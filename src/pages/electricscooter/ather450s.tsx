@@ -24,7 +24,7 @@ const Ather450S = () => {
   const fetchDefaultVariantId = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/v1/variants/search/vehicle?vehicleId=66387bb104fa76d91a3b868d`
+        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/variants/search/vehicle?vehicleId=66387bb104fa76d91a3b868d`
       );
       console.log(response);
       const data = await response.json();
@@ -48,7 +48,7 @@ const Ather450S = () => {
 
   const fetchSpecifications = async (variantId: any) => {
     await fetch(
-      `http://localhost:3001/api/v1/specifications/search/vehicle?variantId=${variantId}&vehicleId=66387bb104fa76d91a3b868d`
+      `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/specifications/search/vehicle?variantId=${variantId}&vehicleId=66387bb104fa76d91a3b868d`
     )
       .then((response) => {
         return response.json();
@@ -63,7 +63,7 @@ const Ather450S = () => {
 
   useEffect(() => {
     fetchDefaultVariantId();
-  }, []);
+  }, [fetchDefaultVariantId]);
 
   return (
     <div className={styles.bodyContainer}>
