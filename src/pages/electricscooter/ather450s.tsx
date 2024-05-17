@@ -15,16 +15,22 @@ import VehicleNavigationTab from "@/app/components/tabs/VehicleNavigationTab/Veh
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);
   const [prices, setPrices] = useState({} as any);
+  const [pricesInTopCities, setpricesInTopCities] = useState({} as any);
+  const [keySpecs, setKeySpecs] = useState({} as any);
 
   useEffect(() => {
     // Fetch vehicle data from your backend API
-    fetch("https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/vehicles/6616255497bf58c85bf40d8b")
+    fetch("http://localhost:3001/api/v1/specifications/search/vehicle?vehicleId=66387bb104fa76d91a3b868d")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setVehicleData(data.vehicle);
+        console.log(data, 'data');
+        
+        setVehicleData(data.specifications);
         setPrices(data.prices);
+        setpricesInTopCities(data.prices.pricesInTopCities)
+        setKeySpecs(data.specifications.keySpec)
       })
       .catch((error) => console.error("Error fetching vehicle data:", error));
   }, []);
@@ -56,7 +62,7 @@ const Ather450S = () => {
       </div>
 
       <div className="p-1 mt-5" id="vehiclePrice">
-        <VehiclePrice></VehiclePrice>
+       {pricesInTopCities && pricesInTopCities.length > 0 &&  <VehiclePrice pricesInTopCities={pricesInTopCities}/> }
       </div>
 
       <div className="p-1 mt-5" id="vehicleCostCalculator">

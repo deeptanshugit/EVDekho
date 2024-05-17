@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import styles from "./scooters.module.css";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const scooters = [
   {
@@ -41,6 +42,19 @@ const scooters = [
 ];
 
 const AtherScooters = () => {
+  const [scooters, setScooters] = useState([])
+
+  const fetchScooters = async() => {
+    const brandName = 'Ather'
+    const response = await fetch(`http://localhost:3001/api/v1/vehicles/list/search?brandName=${brandName}`)
+    const scooters = await response.json()
+    setScooters(scooters)
+  }
+
+  useEffect(() => {
+    fetchScooters()
+  }, [])
+
   return (
     <div className={styles.bodyContainer}>
       <Container>
@@ -54,13 +68,13 @@ const AtherScooters = () => {
       </Container>
       <Container>
         <Row>
-          {scooters.map((scooter, index) => (
+          {scooters.map((scooter: any, index) => (
             <Col key={index} lg={12} md={12} sm={12} className="p-3">
-              <Card>
+              <Card className={styles.vehicleCard}>
                 <Row className="align-items-center">
                   <Col lg={4} md={4} sm={12}>
                     <Image
-                      src={scooter.image}
+                      src={scooter.imagePath}
                       alt="scooter"
                       height={300}
                       width={300}
@@ -68,9 +82,9 @@ const AtherScooters = () => {
                     />
                   </Col>
                   <Col lg={8} md={8} sm={12}>
-                    <h4> {scooter.name} </h4>
-                    <p> {scooter.quickSpec} </p>
-                    <h4> {scooter.price}</h4>
+                    <h4> {scooter.modelName} </h4>
+                    <p> {scooter.keySpecs?.topSpeed} Kmph | {scooter.keySpecs?.range} Km | {scooter.keySpecs?.chargingTime} Hrs </p>
+                    <h4> ₹{scooter.exShowroomPrice}</h4>
                     <Button variant="primary">See Specifications </Button>
                   </Col>
                 </Row>

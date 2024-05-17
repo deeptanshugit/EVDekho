@@ -48,7 +48,11 @@ const prices = [
   },
 ];
 
-export default function VehiclePrice() {
+interface pricesProps {
+  pricesInTopCities: []
+}
+
+export default function VehiclePrice(props: pricesProps) {
   return (
     <Row>
       <Col>
@@ -87,20 +91,20 @@ export default function VehiclePrice() {
               },
             }}
           >
-            {prices.map((price, index) => (
+            {props.pricesInTopCities.map((price: any, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <div className="card">
                   <div className={styles.cardImageContainer}>
                     <Image
-                      src={price.image}
+                      src={price.imagePath}
                       alt=""
                       height={400}
                       width={400}
                     ></Image>
                   </div>
                   <div className="card-content d-flex p-3 flex-column justify-content-start align-items-start">
-                    <h5> {price.city}</h5>
-                    <p className={styles.cardContentP}>{price.price}</p>
+                    <h5> {price.cityName}</h5>
+                    <p className={styles.cardContentP}>{price.formattedPrice}</p>
                   </div>
                 </div>
               </SwiperSlide>
