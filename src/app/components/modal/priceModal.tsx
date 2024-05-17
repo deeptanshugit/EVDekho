@@ -40,27 +40,27 @@ const popularCities = [
   },
   {
     city: "Hyderabad",
-    image: "/cities/hyderabad-charminar.png",
+    image: "/cities/hyderabad.png",
     price: "1,18,984",
   },
   {
     city: "Navi Mumbai",
-    image: "/cities/Navi-Mumbai.png",
+    image: "/cities/navi-mumbai.png",
     price: "1,20,453",
   },
   {
     city: "Ahmedabad",
-    image: "/cities/Ahmedabad.png",
+    image: "/cities/ahmedabad.png",
     price: "1,25,154",
   },
   {
     city: "Chandigarh",
-    image: "/cities/Chandigarh.png",
+    image: "/cities/chandigarh.png",
     price: "1,22,125",
   },
   {
     city: "Kolkata",
-    image: "/cities/Kolkata.png",
+    image: "/cities/kolkata.png",
     price: "1,15,753",
   },
   {
