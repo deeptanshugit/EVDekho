@@ -9,7 +9,7 @@ import VehicleName from "@/app/components/vehiclename/VehicleName";
 import CostCalculator from "@/app/components/costcalculator/CostCalculator";
 import styles from "./ather450s.module.css";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import VehicleNavigationTab from "@/app/components/tabs/VehicleNavigationTab/VehicleNavigationTab";
 import KeySpecs from "@/app/components/specifications/keySpecifications/KeySpecs";
 

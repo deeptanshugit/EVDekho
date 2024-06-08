@@ -33,7 +33,13 @@ export default function NavigationBar() {
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <NavbarBrand href="/"> EVDekho </NavbarBrand>
+        <NavbarBrand href="/">
+          {" "}
+          <img
+            src="/Ev_Dekho__1_-removebg-preview.png"
+            className={styles.logo}
+          />{" "}
+        </NavbarBrand>
         <NavbarToggle />
         <NavbarCollapse className="justify-content-end">
           <div className="d-flex">
@@ -45,7 +51,7 @@ export default function NavigationBar() {
             <div>
               <Form className="d-flex">
                 <div className="p-2">
-                <VehicleSearch></VehicleSearch>
+                  <VehicleSearch></VehicleSearch>
                 </div>
                 {/* <FormControl
                   type="search"
@@ -55,12 +61,12 @@ export default function NavigationBar() {
                 />
                 */}
                 <div className="p-2">
-                <Button
-                  className={styles.locationButton}
-                  variant="outine-secondary"
-                >
-                  <FontAwesomeIcon icon={faLocationDot} />
-                </Button> 
+                  <Button
+                    className={styles.locationButton}
+                    variant="outine-secondary"
+                  >
+                    <FontAwesomeIcon icon={faLocationDot} />
+                  </Button>
                 </div>
               </Form>
             </div>
