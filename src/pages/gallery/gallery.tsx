@@ -7,6 +7,7 @@ import { fontWeight } from "@/app/components/theme/fontWeight";
 import { ThemeColor } from "@/app/components/theme/color";
 import { inter } from "@/app/components/theme/fontfamily";
 import ProductGallery from "@/app/components/carousel/ProductGallery/ProductGallery";
+import GalleryImg from "@/app/components/imagelist/Gallery/galleryImg";
 
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -83,7 +84,12 @@ function gallery() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <ProductGallery />
+        <div>
+          <ProductGallery />
+        </div>
+        <div className="mt-5">
+          <GalleryImg />
+        </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         colors
