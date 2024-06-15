@@ -13,3 +13,10 @@
     padding: 20px;
 }
 
+.faq-answer {
+    display: none;
+  }
+  
+  .faq-answer.show {
+    display: block;
+  }

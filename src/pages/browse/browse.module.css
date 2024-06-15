@@ -1,0 +1,51 @@
+.main {
+  padding: 3rem;
+}
+
+.tableResponsive {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.stickyTable thead th {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background-color: rgb(249,249,249);
+  color: rgb(170,170,170);
+  z-index: 1000;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); 
+}
+
+.stickyTable th {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  background-color: rgb(255,255,255);
+  color: #343a40;
+}
+
+.stickyTable tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2; /* Custom row background color */
+}
+
+.stickyTable tbody tr:nth-of-type(even) {
+  background-color: #ffffff; /* Custom row background color */
+}
+
+.stickyTable tbody td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+}
+
+@media (prefers-color-scheme: dark) {
+}

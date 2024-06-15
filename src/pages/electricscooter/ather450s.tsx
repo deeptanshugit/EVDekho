@@ -9,9 +9,10 @@ import VehicleName from "@/app/components/vehiclename/VehicleName";
 import CostCalculator from "@/app/components/costcalculator/CostCalculator";
 import styles from "./ather450s.module.css";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import VehicleNavigationTab from "@/app/components/tabs/VehicleNavigationTab/VehicleNavigationTab";
 import KeySpecs from "@/app/components/specifications/keySpecifications/KeySpecs";
+import { useCallback } from "react";
 
 const Ather450S = () => {
   const [vehicleData, setVehicleData] = useState([]);
@@ -21,32 +22,7 @@ const Ather450S = () => {
   const [keySpecs, setKeySpecs] = useState({} as any);
   const [vehcleVariants, setVehicleVariants] = useState(null);
 
-  const fetchDefaultVariantId = async () => {
-    try {
-      const response = await fetch(
-        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/variants/search/vehicle?vehicleId=66387bb104fa76d91a3b868d`
-      );
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
-      if (data) {
-        // setVehicleVariants(data)
-        // console.log(vehcleVariants, 'variants');
-        const defaultVariant = data.find(
-          (variant: { isDefault: boolean }) => variant.isDefault === true
-        );
-
-        console.log(defaultVariant, "default");
-        if (defaultVariant) {
-          fetchSpecifications(defaultVariant._id);
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching variants:", error);
-    }
-  };
-
-  const fetchSpecifications = async (variantId: any) => {
+  const fetchSpecifications = useCallback(async (variantId: any) => {
     await fetch(
       `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/specifications/search/vehicle?variantId=${variantId}&vehicleId=66387bb104fa76d91a3b868d`
     )
@@ -59,7 +35,31 @@ const Ather450S = () => {
         setpricesInTopCities(data.prices.pricesInTopCities);
         setKeySpecs(data.specifications.keySpecifications);
       });
-  };
+  }, []);
+
+  const fetchDefaultVariantId = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/variants/search/vehicle?vehicleId=66387bb104fa76d91a3b868d`
+      );
+      const data = await response.json();
+      if (data) {
+        // setVehicleVariants(data)
+        // console.log(vehcleVariants, 'variants');
+        const defaultVariant = data.find(
+          (variant: { isDefault: boolean }) => variant.isDefault === true
+        );
+
+        if (defaultVariant) {
+          fetchSpecifications(defaultVariant._id);
+        }
+
+        setVehicleVariants(data)
+      }
+    } catch (error) {
+      console.error("Error fetching variants:", error);
+    }
+  }, [fetchSpecifications]);
 
   useEffect(() => {
     fetchDefaultVariantId();

@@ -40,15 +40,17 @@ const images = [
 
 interface FeaturedProps {
   imageURL: string;
-  prices?: any
+  prices?: any;
 }
 
 export default function Featured(props: FeaturedProps) {
   const [showVariantModal, setShowVariantModal] = useState(false);
   const [showPriceModal, setShowPriceModal] = useState(false);
-  const [selectedCity, setSelectedCity] = useState<string | null>(null)
-  const [currentVehiclePrice, setCurrentVehiclePrice] = useState<string | null>(null)
-  const [selectedVariant, setSelectedVariant] = useState<string | null>(null)
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const [currentVehiclePrice, setCurrentVehiclePrice] = useState<string | null>(
+    null
+  );
+  const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
 
   const handleVariantModalShow = () => setShowVariantModal(true);
   const handleVariantModalClose = () => setShowVariantModal(false);
@@ -56,17 +58,21 @@ export default function Featured(props: FeaturedProps) {
   const handlePriceModalShow = () => setShowPriceModal(true);
   const handlePriceModalClose = () => setShowPriceModal(false);
 
-  const handleCitySelect = (city: string) =>  {
-    setSelectedCity(city)
-    const vehiclePriceInSelectedCity = props.prices?.pricesInTopCities.find((item: any) => 
-      item.cityName === city
-    )
-    setCurrentVehiclePrice(vehiclePriceInSelectedCity ? vehiclePriceInSelectedCity.formattedPrice : null )
-  }
+  const handleCitySelect = (city: string) => {
+    setSelectedCity(city);
+    const vehiclePriceInSelectedCity = props.prices?.pricesInTopCities.find(
+      (item: any) => item.cityName === city
+    );
+    setCurrentVehiclePrice(
+      vehiclePriceInSelectedCity
+        ? vehiclePriceInSelectedCity.formattedPrice
+        : null
+    );
+  };
 
   const handleVariantSelect = (variant: string) => {
-    setSelectedVariant(variant)
-  }
+    setSelectedVariant(variant);
+  };
 
   return (
     <Container fluid="xs" className={styles.featuredContainer}>
@@ -113,8 +119,12 @@ export default function Featured(props: FeaturedProps) {
                   </Container>
                 </SwiperSlide>
               ))}
-              <div className={`swiper-button-next ${styles.swiperNavigationButton}`}></div>
-              <div className={`swiper-button-prev ${styles.swiperNavigationButton}`}></div>
+              <div
+                className={`swiper-button-next ${styles.swiperNavigationButton}`}
+              ></div>
+              <div
+                className={`swiper-button-prev ${styles.swiperNavigationButton}`}
+              ></div>
             </Swiper>
           </div>
         </Col>
@@ -125,7 +135,12 @@ export default function Featured(props: FeaturedProps) {
               <div className={styles.button} onClick={handlePriceModalShow}>
                 <div className={styles.buttonContainer}>
                   <h5> City </h5>
-                  <p> {selectedCity ? `${selectedCity}, India `: 'Select your city'} </p>
+                  <p>
+                    {" "}
+                    {selectedCity
+                      ? `${selectedCity}, India `
+                      : "Select your city"}{" "}
+                  </p>
                 </div>
                 <div>
                   <FontAwesomeIcon width={15} icon={faChevronRight} />
@@ -136,7 +151,10 @@ export default function Featured(props: FeaturedProps) {
               <div className={styles.button} onClick={handleVariantModalShow}>
                 <div className={styles.buttonContainer}>
                   <h5> Variant </h5>
-                  <p> {selectedVariant ? selectedVariant : 'Select variant'} </p>
+                  <p>
+                    {" "}
+                    {selectedVariant ? selectedVariant : "Select variant"}{" "}
+                  </p>
                 </div>
                 <div>
                   <FontAwesomeIcon width={15} icon={faChevronRight} />
@@ -147,8 +165,19 @@ export default function Featured(props: FeaturedProps) {
           <Row className="mt-2 p-3">
             <Col>
               <div className="p-2">
-                <h3> ₹ {currentVehiclePrice && selectedCity ? currentVehiclePrice : props.prices?.exshowroom} </h3>
-                <p> {selectedCity ? `On road price, ${selectedCity}` : 'Avg Ex Showroom Price'} </p>
+                <h3>
+                  {" "}
+                  ₹{" "}
+                  {currentVehiclePrice && selectedCity
+                    ? currentVehiclePrice
+                    : props.prices?.exshowroom}{" "}
+                </h3>
+                <p>
+                  {" "}
+                  {selectedCity
+                    ? `On road price, ${selectedCity}`
+                    : "Avg Ex Showroom Price"}{" "}
+                </p>
               </div>
             </Col>
           </Row>
@@ -160,7 +189,7 @@ export default function Featured(props: FeaturedProps) {
         </Col>
       </Row>
       <VariantModal
-        vehicleId={1}
+        vehicleId={props.vehicleId}
         showVariantModal={showVariantModal}
         handleClose={handleVariantModalClose}
         onVariantSelect={handleVariantSelect}
