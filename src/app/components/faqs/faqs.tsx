@@ -11,7 +11,7 @@ import styles from "./faqs.module.css";
 import { fontSize } from "../theme/fontsize";
 import { useState } from "react";
 
-const ReadMore = ({ children }) => {
+const ReadMore = ({ children }: any) => {
   const text = children;
   console.log(text);
   const [isReadMore, setIsReadMore] = useState(true);
