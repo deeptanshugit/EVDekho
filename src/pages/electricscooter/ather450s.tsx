@@ -35,8 +35,6 @@ const Ather450S = () => {
         const defaultVariant = data.find(
           (variant: { isDefault: boolean }) => variant.isDefault === true
         );
-
-        console.log(defaultVariant, "default");
         if (defaultVariant) {
           fetchSpecifications(defaultVariant._id);
         }
@@ -63,7 +61,7 @@ const Ather450S = () => {
 
   useEffect(() => {
     fetchDefaultVariantId();
-  }, [fetchDefaultVariantId]);
+  }, []);
 
   return (
     <div className={styles.bodyContainer}>

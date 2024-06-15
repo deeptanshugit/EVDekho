@@ -48,11 +48,12 @@ export default function VariantModal({ showVariantModal, handleClose, onVariantS
   const fetchVariants = async () => {
     try {
       const response = await fetch(
-        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/variants/${props.vehicleId}`
+        `https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/variants/search/vehicle?vehicleId=66387bb104fa76d91a3b868d`
       );
       const variants = await response.json();
-
-      setVehicleVariants(variants.variants);
+      console.log(variants, 'variants');
+      
+      setVehicleVariants(variants);
     } catch (error) {
       console.error("Error fetching variants:", error);
     }
@@ -81,19 +82,15 @@ export default function VariantModal({ showVariantModal, handleClose, onVariantS
             vehicleVariants.map((variant: any, index: any) => (
               <div key={index} className={styles.variantcontainer}>
                 <Container>
-                  <Row onClick={() => (handleVariantSelect(variant.name))}>
+                  <Row onClick={() => (handleVariantSelect(variant.variantName))}>
                     <Col xs={12} md={6} sm={12} lg={6}>
                       <div>
-                        <h5>{variant.name}</h5>
-                        <p>
-                          {" "}
-                          {variant.range} | {variant.topSpeed}{" "}
-                        </p>
+                        <h5>{variant.variantName}</h5>
                       </div>
                     </Col>
                     <Col xs={12} md={6} sm={12} lg={6}>
                       <div>
-                        <h5>₹ {variant.price}</h5>
+                        <h5>₹ {variant.exShowroomPrice}</h5>
                       </div>
                     </Col>
                   </Row>
