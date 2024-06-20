@@ -79,6 +79,7 @@ const Ather450S = () => {
           <Featured
             imageURL="/electricscooter/ather/ather450s.png"
             prices={(prices as any) || {}}
+            vehicleId=""
           />
         </div>
       </div>
