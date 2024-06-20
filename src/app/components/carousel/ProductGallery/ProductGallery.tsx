@@ -38,7 +38,7 @@ function ProductGallery() {
 
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setSelectedImage(images[swiper.realIndex]);
   };
   return (
