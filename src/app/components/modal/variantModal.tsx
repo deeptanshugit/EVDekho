@@ -3,7 +3,6 @@
 import {
   Modal,
   ModalBody,
-  ModalDialog,
   ModalHeader,
   ModalTitle,
   Container,
@@ -12,7 +11,7 @@ import {
 } from "react-bootstrap";
 
 import styles from "./variantModal.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const variants = [
   {

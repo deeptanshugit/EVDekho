@@ -1,13 +1,21 @@
+"use client"
+
 import { fontSize } from "@/app/components/theme/fontsize";
 import { Box, Container, Tab, Tabs, Typography } from "@mui/material";
 import styles from "./gallery.module.css";
-import React from "react";
+import { useState } from "react";
 import withLayout from "@/app/components/WithLayout";
 import { fontWeight } from "@/app/components/theme/fontWeight";
 import { ThemeColor } from "@/app/components/theme/color";
 import { inter } from "@/app/components/theme/fontfamily";
 import ProductGallery from "@/app/components/carousel/ProductGallery/ProductGallery";
-import GalleryImg from "@/app/components/imagelist/Gallery/galleryImg";
+import GalleryImg from "@/app/components/imagelist/Gallery/GalleryImg";
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -32,8 +40,8 @@ function a11yProps(index: number) {
   };
 }
 
-function gallery() {
-  const [value, setValue] = React.useState(0);
+const Gallery = () => {
+  const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -98,4 +106,4 @@ function gallery() {
   );
 }
 
-export default withLayout(gallery);
+export default withLayout(Gallery);
