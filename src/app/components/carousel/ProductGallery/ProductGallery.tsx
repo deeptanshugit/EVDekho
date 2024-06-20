@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 import { EffectFade } from "swiper/modules";
 
@@ -34,20 +34,25 @@ const images = [
 ];
 
 function ProductGallery() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
 
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
-  const handleSlideChange = (swiper: any) => {
+  const handleSlideChange = (swiper: SwiperClass) => {
     setSelectedImage(images[swiper.realIndex]);
   };
+
+  const handleSwiper = (swiper: SwiperClass) => {
+    setThumbsSwiper(swiper);
+  };
+
   return (
     <div className="galleryContainer">
       <Swiper
         style={{
           "--swiper-navigation-color": "black",
           "--swiper-pagination-color": "white",
-        }}
+        } as React.CSSProperties}
         spaceBetween={10}
         navigation
         effect="fade"
@@ -83,7 +88,7 @@ function ProductGallery() {
         </Grid>
       </div>
       <Swiper
-        onSwiper={setThumbsSwiper}
+        onSwiper={handleSwiper}
         spaceBetween={10}
         slidesPerView={6}
         navigation
