@@ -30,7 +30,7 @@ const Ather450X = () => {
     <main className={styles.main}>
 
       <div className={styles.center}>
-        <Featured imageURL="/electricscooter/ather/ather-450x.jpg" />
+        <Featured imageURL="/electricscooter/ather/ather-450x.jpg" vehicleId="" />
       </div>
 
       <div className={styles.left}>

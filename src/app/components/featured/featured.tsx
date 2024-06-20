@@ -39,7 +39,7 @@ const images = [
 ];
 
 interface FeaturedProps {
-  vehicleId: string;
+  vehicleId?: string;
   imageURL: string;
   prices?: any;
 }
