@@ -31,7 +31,7 @@ const variants = [
 interface VariantModalProps {
   showVariantModal: boolean;
   handleClose: () => void;
-  vehicleId: string;
+  vehicleId?: string;
   onVariantSelect: (variant: string) => void
 }
 
