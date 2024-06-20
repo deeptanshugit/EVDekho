@@ -16,14 +16,20 @@ import {
   Grow,
   Collapse,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import styles from "./browse.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "@/app/components/footer/footer";
 import { Table } from "react-bootstrap";
 
-const ReadMore = ({ summary, children, maxChar = 150 }) => {
+interface ReadMoreProps {
+  summary: string;
+  children: ReactNode;
+  maxChar?: number;
+}
+
+const ReadMore:React.FC<ReadMoreProps> = ({ summary, children, maxChar = 150 }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleToggle = () => {
