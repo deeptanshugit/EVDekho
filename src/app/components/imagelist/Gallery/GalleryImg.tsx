@@ -1,7 +1,7 @@
 import * as React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import styles from "./galleryImg.module.css";
+import styles from "./galleryimg.module.css";
 import { Button, Typography } from "@mui/material";
 import { fontSize } from "../../theme/fontsize";
 import { ThemeColor } from "../../theme/color";
