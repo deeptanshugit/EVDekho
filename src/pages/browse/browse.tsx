@@ -22,6 +22,7 @@ import styles from "./browse.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "@/app/components/footer/footer";
 import { Table } from "react-bootstrap";
+import CustomBreadcrumbs from "@/app/components/breadcrumb/breadcrumb";
 
 interface ReadMoreProps {
   summary: string;
@@ -142,6 +143,7 @@ function browse() {
           </Table>
         </div>
       </ReadMore>
+
     </Container>
   );
 }

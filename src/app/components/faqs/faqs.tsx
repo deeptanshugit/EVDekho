@@ -20,20 +20,13 @@ const ReadMore = ({ children }: any) => {
   };
   return (
     <div className="text">
-      {/* {isReadMore ? (
-        text.slice(0, 150)
-      ) : (
-        text
-        
-      )} */}
       <Collapse in={!isReadMore} timeout={{ enter: 500, exit: 500 }}>
         {/* <div>{text}</div> */}
         <div>{text}</div>
       </Collapse>
       <Collapse in={isReadMore} timeout={{ enter: 200, exit: 200 }}>
-        <div>{text}</div>
+        <div>{text.slice(0, 100) + "..." }</div>
       </Collapse>
-      {/* {isReadMore && text.length > 150 ? text.slice(0, 150) + "..." : ""} */}
 
       <div
         onClick={toggleReadMore}
@@ -69,23 +62,69 @@ export default function FAQS() {
   return (
     <Row>
       <Col>
-        <Container fluid>
+        <Container fluid >
           <div>
             <h3> Ather 450S FAQs </h3>
           </div>
-          <div className={styles.container}>
-            {vehicleFAQ &&
-              vehicleFAQ.map((faq: any, index) => (
-                <div key={index} className={styles.section}>
-                  <div className="question">
-                    <h5> {faq.question} </h5>
-                  </div>
-                  <div className="answer">
-                    <ReadMore> {faq.answer} </ReadMore>
-                  </div>
-                  <Divider className="w-100" />
-                </div>
-              ))}
+          <div className={styles.container} >
+            <div className={styles.section}>
+              <div className="question">
+                <h5> Q: What is the range of Ather 450s</h5>
+              </div>
+              <div className="answer">
+                <ReadMore>
+                  The 2024 on-road price of Royal Enfield Hunter 350 in Delhi is
+                  Rs. 1,73,111. This Royal Enfield Hunter 350 price includes the
+                  ex-showroom price, RTO and insurance charges.
+                </ReadMore>
+              </div>
+            </div>
+
+            <Divider className="w-100" />
+            <div className={styles.section}>
+              <div className="question">
+                <h5> Q: What is the on-road price of Ather 450S in 2024? </h5>
+              </div>
+              <div className="answer">
+                <ReadMore>
+                  The 2024 on-road price of Royal Enfield Hunter 350 in Delhi is
+                  Rs. 1,73,111. This Royal Enfield Hunter 350 price includes the
+                  ex-showroom price, RTO and insurance charges.
+                </ReadMore>
+              </div>
+            </div>
+            <Divider className="w-100" />
+
+            <div className={styles.section}>
+              <div className="question">
+                <h5> Q: What is the battery of Ather 450s in 2024? </h5>
+              </div>
+              <div className="answer">
+                <ReadMore>
+                  The 2024 on-road price of Royal Enfield Hunter 350 in Delhi is
+                  Rs. 1,73,111. This Royal Enfield Hunter 350 price includes the
+                  ex-showroom price, RTO and insurance charges.
+                </ReadMore>
+              </div>
+            </div>
+            <Divider className="w-100" />
+
+            <div className={styles.section}>
+              <div className="question">
+                <h5>
+                  {" "}
+                  Q: What is the 0 - 100 charging duration of Ather 450S in
+                  2024?{" "}
+                </h5>
+              </div>
+              <div className="answer">
+                <ReadMore>
+                  The 2024 on-road price of Royal Enfield Hunter 350 in Delhi is
+                  Rs. 1,73,111. This Royal Enfield Hunter 350 price includes the
+                  ex-showroom price, RTO and insurance charges.
+                </ReadMore>
+              </div>
+            </div>
           </div>
         </Container>
       </Col>
