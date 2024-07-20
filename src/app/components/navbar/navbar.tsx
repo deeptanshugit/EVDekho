@@ -20,9 +20,10 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons/faLocationDot";
 import VehicleSearch from "../search/vehicle/VehicleSearch";
 import { useSelector } from "react-redux";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 
 export default function NavigationBar() {
-  const [isActive, setIsActive] = useState(false);
+  const router= useRouter()
   const user = useSelector((state: any) => state.auth.user);
 
   return (
@@ -57,9 +58,9 @@ export default function NavigationBar() {
                   </Button>
                 </div>
                 <div className="p-2">
-                  <Button className={styles.userProfileButton} variant="outline-secondary">
+                  <Button className={styles.userProfileButton} variant="outline-secondary" onClick={() => {router.push('/login/login')}}>
                   <FontAwesomeIcon icon={faUser} />
-                  {user?.name}
+                  { user && user?.name ? user?.name : 'Login'}
                   </Button>
                 </div>
               </Form>
