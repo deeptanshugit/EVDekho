@@ -15,7 +15,7 @@ function Signup() {
 
   const handleSignup = async () => {
     try {
-        const res = await axios.post('http://localhost:3001/api/v1/auth/signup', {name, email, password})
+        const res = await axios.post('https://evdekho-backend-7f6f8ecf5616.herokuapp.com/api/v1/auth/signup', {name, email, password})
         console.log(res, 'response');
         if (res.status === 201) {
           setShowSnackbar(true);
