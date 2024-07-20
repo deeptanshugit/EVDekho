@@ -4,7 +4,6 @@ import BrandSelector from "./components/browse/BrandSelector/BrandSelector";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import VehicleSearch from "./components/search/vehicle/VehicleSearch";
-import Image from "next/image";
 
 export default function Home() {
   return (

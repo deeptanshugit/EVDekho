@@ -18,18 +18,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons/faLocationDot";
 import VehicleSearch from "../search/vehicle/VehicleSearch";
+import { useSelector } from "react-redux";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 
 export default function NavigationBar() {
-  // adding the states
-  const [isActive, setIsActive] = useState(false);
-  //add the active class
-  const toggleActiveClass = () => {
-    setIsActive(!isActive);
-  };
-  //clean up function to remove the active class
-  const removeActive = () => {
-    setIsActive(false);
-  };
+  const router= useRouter()
+  const user = useSelector((state: any) => state.auth.user);
+
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -53,19 +49,18 @@ export default function NavigationBar() {
                 <div className="p-2">
                   <VehicleSearch></VehicleSearch>
                 </div>
-                {/* <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                */}
                 <div className="p-2">
                   <Button
                     className={styles.locationButton}
                     variant="outine-secondary"
                   >
                     <FontAwesomeIcon icon={faLocationDot} />
+                  </Button>
+                </div>
+                <div className="p-2">
+                  <Button className={styles.userProfileButton} variant="outline-secondary" onClick={() => {router.push('/login/login')}}>
+                  <FontAwesomeIcon icon={faUser} />
+                  { user && user?.name ? user?.name : 'Login'}
                   </Button>
                 </div>
               </Form>

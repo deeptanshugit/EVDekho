@@ -123,3 +123,16 @@
   border-style: solid;
   border-width: 1px;
 }
+
+.userProfileButton {
+  border-color: #120f0b;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.userProfileButton:hover {
+  color: #00afa0;
+  border-color: #00afa0;
+  border-style: solid;
+  border-width: 1px;
+}
