@@ -20,19 +20,12 @@ const ReadMore = ({ children }) => {
   };
   return (
     <div className="text">
-      {/* {isReadMore ? (
-        text.slice(0, 150)
-      ) : (
-        text
-        
-      )} */}
       <Collapse in={!isReadMore} timeout={{ enter: 500, exit: 500 }}>
         <div>{text}</div>
       </Collapse>
       <Collapse in={isReadMore} timeout={{ enter: 200, exit: 200 }}>
-        <div>{text.slice(0, 150) + "..." }</div>
+        <div>{text.slice(0, 100) + "..." }</div>
       </Collapse>
-      {/* {isReadMore && text.length > 150 ? text.slice(0, 150) + "..." : ""} */}
 
       <div
         onClick={toggleReadMore}
@@ -49,11 +42,11 @@ export default function FAQS() {
   return (
     <Row>
       <Col>
-        <Container fluid>
+        <Container fluid >
           <div>
             <h3> Ather 450S FAQs </h3>
           </div>
-          <div className={styles.container}>
+          <div className={styles.container} >
             <div className={styles.section}>
               <div className="question">
                 <h5> Q: What is the range of Ather 450s</h5>
