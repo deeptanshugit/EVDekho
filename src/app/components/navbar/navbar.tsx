@@ -6,10 +6,6 @@ import {
   Button,
   Container,
   Form,
-  FormControl,
-  InputGroup,
-  Nav,
-  NavLink,
   Navbar,
   NavbarBrand,
   NavbarCollapse,
@@ -21,10 +17,21 @@ import VehicleSearch from "../search/vehicle/VehicleSearch";
 import { useSelector } from "react-redux";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import React from "react";
 
 export default function NavigationBar() {
-  const router= useRouter()
+  const router = useRouter();
   const user = useSelector((state: any) => state.auth.user);
+  const anchorRef = React.useRef<HTMLDivElement>(null);
+  const [open, setOpen] = React.useState(false);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const options = ['Logout'];
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
 
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary">
@@ -58,10 +65,32 @@ export default function NavigationBar() {
                   </Button>
                 </div>
                 <div className="p-2">
-                  <Button className={styles.userProfileButton} variant="outline-secondary" onClick={() => {router.push('/login/login')}}>
-                  <FontAwesomeIcon icon={faUser} />
-                  { user && user?.name ? user?.name : 'Login'}
+                  <Button
+                    className={styles.userProfileButton}
+                    variant="outline-secondary"
+                    onClick={() => {
+                      router.push("/login/login");
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faUser} />
+                    {user && user?.name ? user?.name : "Login"}
                   </Button>
+
+                  <ButtonGroup variant="contained" ref={anchorRef}>
+                    <Button>
+                      {options[selectedIndex]}
+                    </Button>
+                    <Button
+                      size="sm"
+                      aria-controls={open ? "split-button-menu" : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-label="select merge strategy"
+                      aria-haspopup="menu"
+                      onClick={handleToggle}
+                    >
+                      <ArrowDropDownIcon />
+                    </Button>
+                  </ButtonGroup>
                 </div>
               </Form>
             </div>

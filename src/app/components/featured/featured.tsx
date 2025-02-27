@@ -16,6 +16,7 @@ import "swiper/css/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Navigation } from "swiper/modules";
+import { useRouter } from "next/router";
 
 const images = [
   {
@@ -52,6 +53,7 @@ export default function Featured(props: FeaturedProps) {
     null
   );
   const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
+  const router = useRouter()
 
   const handleVariantModalShow = () => setShowVariantModal(true);
   const handleVariantModalClose = () => setShowVariantModal(false);
@@ -107,17 +109,24 @@ export default function Featured(props: FeaturedProps) {
                 },
               }}
             >
-              {images.map((image, index) => (
+              {images.map((image, index: any) => (
                 <SwiperSlide key={index} className={styles.swiperSlide}>
-                  <Container fluid className={styles.imageContainer}>
-                    <Image
-                      src={image.url}
-                      alt="ather"
-                      layout="responsive" // Added layout="responsive"
-                      width={500}
-                      height={500} //
-                    ></Image>
-                  </Container>
+                  <div className={styles.sliderContent}>
+                    <Container fluid className={styles.imageContainer}>
+                      <Image
+                        src={image.url}
+                        alt="ather"
+                        layout="responsive" 
+                        width={500}
+                        height={500}
+                      ></Image>
+                    </Container>
+                    <div className={styles.viewMoreButtonSection}>
+                      {index === images.length - 1 && (
+                        <Button className={styles.viewMoreButton} onClick={() => router.push('/gallery/gallery')}>View More Images</Button>
+                      )}
+                    </div>
+                  </div>
                 </SwiperSlide>
               ))}
               <div
