@@ -2,5 +2,5 @@
     position: absolute;
     width: 85%;
     overflow-y: auto;
-    max-height: 200px;
+    height: 200px;
 }

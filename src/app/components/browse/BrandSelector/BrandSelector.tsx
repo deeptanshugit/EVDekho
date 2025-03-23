@@ -15,6 +15,8 @@ import styles from "./brandselector.module.css";
 import { useRouter } from "next/navigation";
 import BudgetSelector from "../BudgetSelector/BudgetSelector";
 import RangeSelector from "../RangeSelector/RangeSelector";
+import FeaturedBikeNavigation from "../../tabs/FeaturedBikeNavigationTab/FeaturedBikeNavigation";
+import { useState } from "react";
 
 const brandLogos = [
   {
@@ -34,35 +36,42 @@ const brandLogos = [
   },
 ];
 
+const brandTabs = [
+  { name: "BRAND", href: "vehicleBrand" },
+  { name: "BUDGET", href: "vehicleBudget" },
+  { name: "DISPLACEMENT", href: "vehicleDisplacement" },
+  { name: "BODY STYLE", href: "vehicleStyle" },
+];
+
 const BrandSelector = () => {
   const router = useRouter();
 
   const handleImageClick = (to: any) => {
     router.push(to);
   };
+
+  const [activeTab, setActiveTab] = useState<string>("vehicleBrand");
+
+  const handleSelectTab = (key: string) => {
+    setActiveTab(key);
+  };
   return (
-    <TabContainer id="browse-evs" defaultActiveKey="brands">
-      <Row className="p-5">
-        <div>
-          <h3> Browse EVs by </h3>
-        </div>
-        <Nav variant="tabs">
-          <NavItem>
-            <NavLink eventKey="brands"> Brands </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink eventKey="budget"> Budget </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink eventKey="range"> Range </NavLink>
-          </NavItem>
-        </Nav>
-        <TabContent>
-          <TabPane eventKey="brands">
+    <div>
+      <h3> Browse EVs by </h3>
+      <div className="mb-2">
+        <FeaturedBikeNavigation
+          tabs={brandTabs}
+          activeTab={activeTab}
+          onSelectTab={handleSelectTab}
+        />
+      </div>
+      <div className="pt-2 mb-5">
+        {activeTab === "vehicleBrand" && (
+          <div>
             <Container>
               <Row>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2} className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/TVS.png"}
                       alt="image"
@@ -72,8 +81,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col  lg={3} md={3} sm={2} xs={2} className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/Ather.png"}
                       alt="image"
@@ -83,8 +92,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2}  className={styles.imageContainer}>
+                  <div >
                     <Image
                       src={"/brands/Ola.png"}
                       alt="image"
@@ -94,8 +103,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2}  className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/Gogoro.png"}
                       alt="image"
@@ -105,8 +114,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2}  className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/Bajaj.png"}
                       alt="image"
@@ -116,10 +125,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-              </Row>
-              <Row className="p-5">
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2} className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/HeroElectric.png"}
                       alt="image"
@@ -129,8 +136,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2} className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/Okaya.png"}
                       alt="image"
@@ -140,8 +147,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2} className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/OkinawaLogo.png"}
                       alt="image"
@@ -151,8 +158,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2} className={styles.imageContainer}>
+                  <div >
                     <Image
                       src={"/brands/Vida.png"}
                       alt="image"
@@ -162,8 +169,8 @@ const BrandSelector = () => {
                     />
                   </div>
                 </Col>
-                <Col>
-                  <div className={styles.imageContainer}>
+                <Col lg={3} md={3} sm={2} xs={2} className={styles.imageContainer}>
+                  <div>
                     <Image
                       src={"/brands/JoyeBike.jpeg"}
                       alt="image"
@@ -175,16 +182,13 @@ const BrandSelector = () => {
                 </Col>
               </Row>
             </Container>
-          </TabPane>
-          <TabPane eventKey="budget">
-            <BudgetSelector></BudgetSelector>
-          </TabPane>
-          <TabPane eventKey="range">
-            <RangeSelector></RangeSelector>
-          </TabPane>
-        </TabContent>
-      </Row>
-    </TabContainer>
+          </div>
+        )}
+        {activeTab === "vehicleBudget" && <div>budget</div>}
+        {activeTab === "vehicleDisplacement" && <div>displacement</div>}
+        {activeTab === "vehicleStyle" && <div>style</div>}
+      </div>
+    </div>
   );
 };
 

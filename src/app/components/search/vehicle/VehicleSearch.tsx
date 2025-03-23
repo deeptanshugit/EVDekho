@@ -72,7 +72,7 @@ export default function VehicleSearch() {
           </Button>
         </InputGroup>
         {showResults && (
-          <ListGroup className={styles.searchResults}>
+          <ListGroup variant="flush" className={styles.searchResults}>
             { searchResults.length > 0 && searchResults.map((item: any, index) => (
               <ListGroupItem action key={index} onClick={() => redirectToVehiclePage(item.brandName, item.modelName.replace(/\s+/g, '').toLowerCase())}>{item.modelName}</ListGroupItem>
             ))}

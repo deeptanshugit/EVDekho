@@ -29,7 +29,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Provider store={store}>
         <NavigationBar />
-
         {children}
         </Provider>
       </body>

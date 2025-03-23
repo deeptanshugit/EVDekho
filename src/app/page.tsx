@@ -4,6 +4,9 @@ import BrandSelector from "./components/browse/BrandSelector/BrandSelector";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import VehicleSearch from "./components/search/vehicle/VehicleSearch";
+import SimpleSlider from "./components/slider/simpleSlider";
+import Featurebike from "./components/home/featuredbike/featurebike";
+import Footer from "./components/footer/footer";
 
 export default function Home() {
   return (
@@ -20,8 +23,14 @@ export default function Home() {
         </Col>
       </Row>
       <div className={styles.bodyContainer}>
-        <BrandSelector></BrandSelector>
+        <div>
+          <Featurebike />
+        </div>
+        <div>
+          <BrandSelector/>
+        </div>
       </div>
+      <Footer/>
     </div>
   );
 }
